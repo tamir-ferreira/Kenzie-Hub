@@ -40,6 +40,9 @@ export const StyledGlobals = createGlobalStyle`
     margin: 0 auto;
       }
 
+  form .selected{
+    color: var(--color-gray-0);
+  }
   /* @media only screen and (max-width: 37.5rem) {
     main{
       width: 100%;

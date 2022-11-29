@@ -20,7 +20,7 @@ export const StyledTypography = createGlobalStyle`
       --font-size-4: 12px;
 
       --font-weigth-1: 700;
-      --font-weigth-3: 400;
+      --font-weigth-2: 400;
     }
 
   .font-title-1 {
@@ -40,7 +40,13 @@ export const StyledTypography = createGlobalStyle`
 
   .font-headline {
     font-size: var(--font-size-4);
-    font-weight: var(--font-weigth-3);
+    font-weight: var(--font-weigth-2);
+  }
+
+  .font-headline-gray {
+    font-size: var(--font-size-4);
+    font-weight: var(--font-weigth-2);
+    color: var(--color-gray-1);
   }
   
   .font-headline-bold {
@@ -50,7 +56,7 @@ export const StyledTypography = createGlobalStyle`
   
   .font-headline-italic {
     font-size: var(--font-size-4);
-    font-weight: var(--font-weigth-3);
+    font-weight: var(--font-weigth-2);
     font-style: italic;
   }
 

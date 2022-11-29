@@ -47,7 +47,7 @@ const buttonVariants = {
     }
   `,
 
-  disable: css`
+  disabled: css`
     background-color: var(--color-primary-disable);
     border: 0.125rem solid var(--color-primary-disable);
     pointer-events: none;
