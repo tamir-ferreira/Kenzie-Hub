@@ -1,12 +1,12 @@
-import { Button } from "./components/Button";
+import { Route, Routes } from "react-router-dom";
+import { LoginPage } from "./pages/login";
+import { RegisterPage } from "./pages/register";
 
 export const App = () => {
   return (
-    <div className="App">
-      <h1>App</h1>
-      <Button size="small" color="gray">
-        Login
-      </Button>
-    </div>
+    <Routes>
+      <Route path="/" element={<RegisterPage className="container" />} />
+      <Route path="login" element={<LoginPage />} />
+    </Routes>
   );
 };

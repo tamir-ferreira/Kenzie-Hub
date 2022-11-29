@@ -11,12 +11,11 @@ const buttonVariants = {
     height: 32px;
     padding: 0 16px;
     font-size: var(--font-size-4);
-    color: var(--color-gray-0);
-    background-color: var(--color-gray-3);
+  `,
 
-    :hover {
-      background-color: var(--color-gray-2);
-    }
+  plus: css`
+    width: 32px;
+    height: 32px;
   `,
 
   colored: css`
@@ -39,6 +38,15 @@ const buttonVariants = {
     }
   `,
 
+  dark_gray: css`
+    color: var(--color-gray-0);
+    background-color: var(--color-gray-3);
+
+    :hover {
+      background-color: var(--color-gray-2);
+    }
+  `,
+
   disable: css`
     background-color: var(--color-primary-disable);
     border: 0.125rem solid var(--color-primary-disable);
@@ -47,6 +55,9 @@ const buttonVariants = {
 };
 
 export const StyledButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: transparent;
   border-radius: var(--border-radius-1);
   font-weight: var(--font-weigth-2);

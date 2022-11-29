@@ -10,13 +10,14 @@ export const StyledGlobals = createGlobalStyle`
   :root {
     --border-radius-1: 4px;
     /* --border-radius-2: .3125rem; */
+    color: var(--color-gray-0);
   }
 
-/* 
   body {
-    color: var(--color-gray-100);
+    background: var(--color-gray-4);
   }
 
+  /* 
   main {
     padding-top: 2rem;
     display: flex;
@@ -35,7 +36,7 @@ export const StyledGlobals = createGlobalStyle`
 
   .container {
     width: 100%;
-    max-width: 85.625rem;
+    max-width: 370px;
     margin: 0 auto;
       }
 
