@@ -1,13 +1,13 @@
 import React from "react";
-import { Button } from "../Button";
-import { Input } from "../Input";
-import { Select } from "../Select";
-import { StyledForm } from "./styles";
+import { Button } from "../../Button";
+import { Input } from "../../Input";
+import { Select } from "../../Select";
+import { StyledForm } from "../styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
 
-export const Form = () => {
+export const FormRegister = () => {
   const {
     register,
     handleSubmit,
