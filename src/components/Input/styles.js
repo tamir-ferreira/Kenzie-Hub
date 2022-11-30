@@ -3,9 +3,10 @@ import styled from "styled-components";
 export const StyledInput = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  /* gap: 15px; */
 
-  input {
+  > input {
+    margin: 15px 0 3px 0;
     font-size: var(--font-size-2);
     padding-left: 16px;
     height: 48px;
@@ -22,5 +23,9 @@ export const StyledInput = styled.div`
     :focus {
       border-color: var(--color-gray-0);
     }
+  }
+
+  p {
+    color: var(--color-negative);
   }
 `;

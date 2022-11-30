@@ -5,52 +5,15 @@ import { Select } from "../Select";
 import { StyledForm } from "./styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import * as yup from "yup";
-// import { FaPlus } from "react-icons/fa";
+import { registerSchema } from "./schemas";
 
 export const Form = () => {
-  const formSchema = yup.object().shape({
-    name: yup
-      .string()
-      .required("campo obrigatório")
-      .min(3, "mínimo de 3 caracteres")
-      .max(200, "máximo de 200 caracteres"),
-
-    email: yup
-      .string()
-      .required("campo obrigatório")
-      .email("necessário fornecer um e-mail válido"),
-
-    password: yup
-      .string()
-      .required("campo obrigatório")
-      .min(8, "mínimo de 8 caracteres")
-      .matches(/(?=.*?[A-Z])/, "necessário pelo menos 1 letra maiúscula")
-      .matches(/(?=.*?[a-z])/, "necessário pelo menos 1 letra minúscula")
-      .matches(/(?=.*?[0-9])/, "necessário pelo menos 1 número")
-      .matches(
-        /(?=.*?[#?!@$%^&*-])/,
-        "necessário pelo menos 1 caracter especial"
-      ),
-    passwordConfirm: yup
-      .string()
-      .required("campo obrigatório")
-      .min(8, "mínimo de 8 caracteres")
-      .matches(/(?=.*?[A-Z])/, "necessário pelo menos 1 letra maiúscula")
-      .matches(/(?=.*?[a-z])/, "necessário pelo menos 1 letra minúscula")
-      .matches(/(?=.*?[0-9])/, "necessário pelo menos 1 número")
-      .matches(
-        /(?=.*?[#?!@$%^&*-])/,
-        "necessário pelo menos 1 caracter especial"
-      ),
-  });
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
-    resolver: yupResolver(formSchema),
+    resolver: yupResolver(registerSchema),
   });
 
   const submitForm = (data) => {
@@ -60,9 +23,6 @@ export const Form = () => {
 
   return (
     <StyledForm onSubmit={handleSubmit(submitForm)} noValidate>
-      {/* <Button size="plus" color="dark_gray">
-        <FaPlus size={13} />
-      </Button> */}
       <div>
         <h2 className="font-title-1">Crie sua conta</h2>
         <p className="font-headline-gray">Rápido e grátis, vamos nessa</p>
@@ -109,10 +69,7 @@ export const Form = () => {
         register={register("contact")}
         error={errors.contact?.message}
       />
-      <label className="font-headline" htmlFor="">
-        Selecionar módulo
-      </label>
-      <Select />
+      <Select register={register("module")} error={errors.module?.message} />
       <Button
         type="submit"
         size="default"
