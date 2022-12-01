@@ -1,9 +1,10 @@
 import styled from "styled-components";
 
-export const StyledInput = styled.div`
+export const StyledInput = styled.fieldset`
+  position: relative;
   display: flex;
   flex-direction: column;
-  /* gap: 15px; */
+  border: none;
 
   > input {
     margin: 15px 0 3px 0;
@@ -25,7 +26,16 @@ export const StyledInput = styled.div`
     }
   }
 
-  p {
+  > svg {
+    position: absolute;
+    right: 16px;
+    top: 46px;
+    :hover {
+      cursor: pointer;
+    }
+  }
+
+  > p {
     color: var(--color-negative);
   }
 `;

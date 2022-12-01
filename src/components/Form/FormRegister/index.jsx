@@ -1,24 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
 import { Button } from "../../Button";
 import { Input } from "../../Input";
 import { Select } from "../../Select";
 import { StyledForm } from "../styles";
-import { useForm } from "react-hook-form";
+import { set, useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
+import { createUser } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
 export const FormRegister = () => {
+  const [anyError, setAnyError] = useState(true);
+  const navigate = useNavigate();
+
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm({
+    mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
 
-  const submitForm = (data) => {
+  const submitForm = async (data) => {
     // enviar para API
-    console.log(data);
+    const user = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      bio: data.bio,
+      contact: data.contact,
+      course_module: data.course_module,
+    };
+    (await createUser(user)) &&
+      setTimeout(() => {
+        navigate(`/`);
+      }, 3500);
   };
 
   return (
@@ -44,14 +61,14 @@ export const FormRegister = () => {
       <Input
         label="Senha"
         type="password"
-        placeholder="Digite aqui sua senha"
+        placeholder="Crie aqui sua senha"
         register={register("password")}
         error={errors.password?.message}
       />
       <Input
         label="Confirmar Senha"
         type="password"
-        placeholder="Digite novamente sua senha"
+        placeholder="Digite a senha novamente"
         register={register("passwordConfirm")}
         error={errors.passwordConfirm?.message}
       />
@@ -65,11 +82,14 @@ export const FormRegister = () => {
       <Input
         label="Contato"
         type="text"
-        placeholder="Opção de Contato"
+        placeholder="(DD) XXXXX-XXXX"
         register={register("contact")}
         error={errors.contact?.message}
       />
-      <Select register={register("module")} error={errors.module?.message} />
+      <Select
+        register={register("course_module")}
+        error={errors.course_module?.message}
+      />
       <Button
         type="submit"
         size="default"

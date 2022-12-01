@@ -11,6 +11,5 @@ export const StyledForm = styled.form`
     flex-direction: column;
     align-items: center;
     gap: 22px;
-    /* background-color: red; */
   }
 `;

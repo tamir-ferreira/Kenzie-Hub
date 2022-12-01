@@ -38,11 +38,16 @@ export const StyledGlobals = createGlobalStyle`
     width: 100%;
     max-width: 370px;
     margin: 0 auto;
-      }
-
-  form .selected{
-    color: var(--color-gray-0);
   }
+
+  input.error,
+  select.error,
+  input.error:focus,
+  select.error:focus{
+    border-color: red;
+    /* background-color: red; */
+  }
+
   /* @media only screen and (max-width: 37.5rem) {
     main{
       width: 100%;

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledSelect = styled.div`
+export const StyledSelect = styled.fieldset`
   display: flex;
   flex-direction: column;
-  /* gap: 15px; */
+  border: none;
 
   > select {
     margin: 15px 0 3px 0;
