@@ -36,7 +36,7 @@ export const StyledGlobals = createGlobalStyle`
 
   .container {
     width: 100%;
-    max-width: 370px;
+    max-width: 780px;
     margin: 0 auto;
   }
 
@@ -45,17 +45,7 @@ export const StyledGlobals = createGlobalStyle`
   input.error:focus,
   select.error:focus{
     border-color: red;
-    /* background-color: red; */
   }
-
-  /* @media only screen and (max-width: 37.5rem) {
-    main{
-      width: 100%;
-      padding: 1rem;
-      flex-direction: column;
-      text-align: center;
-    }
-  } */
 
   ::-webkit-scrollbar-track { background-color: var(--color-gray-20) }
   ::-webkit-scrollbar { width: .4375rem; height: .4375rem;}

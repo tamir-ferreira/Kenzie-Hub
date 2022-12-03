@@ -7,9 +7,14 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
+import { loginUser } from "../../../services/api";
+import { useNavigate } from "react-router-dom";
 
-export const FormLogin = () => {
+export const FormLogin = ({ setUser }) => {
+  const navigate = useNavigate();
   const [showPass, setShowPass] = useState(false);
+  const [loading, setLoading] = useState(false);
+
   const {
     register,
     handleSubmit,
@@ -20,14 +25,17 @@ export const FormLogin = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const submitForm = (data) => {
-    // enviar para API
-    console.log(data);
-    reset({
-      /* caso precise passar algum valor inicial 
-      name: 'Ronaldo',
-      email: 'roni@mail.com */
-    });
+  const submitForm = async (data) => {
+    const response = await loginUser(data, setLoading);
+    if (response) {
+      setUser(response.user);
+      localStorage.setItem("@TOKEN", response.token);
+      localStorage.setItem("@USERID", response.user.id);
+
+      setTimeout(() => {
+        navigate("home");
+      }, 3000);
+    }
   };
 
   return (
@@ -35,7 +43,6 @@ export const FormLogin = () => {
       <div>
         <h2 className="font-title-1">Login</h2>
       </div>
-
       <Input
         label="Email"
         type="email"
@@ -58,7 +65,12 @@ export const FormLogin = () => {
         }
       />
 
-      <Button type="submit" size="default" color="colored" children="Entrar" />
+      <Button
+        type="submit"
+        size="default"
+        color={!loading ? "colored" : "disabled"}
+        children={!loading ? "Entrar" : "aguarde um momento..."}
+      />
     </StyledForm>
   );
 };

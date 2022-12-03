@@ -11,14 +11,14 @@ export const createUser = async (user) => {
     const response = await api.post("/users", user);
 
     response.status === 201 &&
-      toast.success("Sucesso!! Redirecionando...", {
+      toast.success("Cadastrado com Sucesso!! Redirecionando...", {
         style: {
           color: "var(--color-success)",
         },
       });
     return true;
   } catch (error) {
-    console.error(error.response.data.message);
+    // console.error(error.response.data.message);
     const message = error.response.data.message;
 
     message === "Email already exists" &&
@@ -28,5 +28,43 @@ export const createUser = async (user) => {
         },
       });
     return false;
+  }
+};
+
+export const loginUser = async (user, setLoading) => {
+  try {
+    setLoading(true);
+    const response = await api.post("/sessions", user);
+
+    // console.log(response.data);
+    response.status === 200 &&
+      toast.success("Logado com Sucesso!! Aguarde...", {
+        style: {
+          color: "var(--color-success)",
+        },
+      });
+
+    return response.data;
+  } catch (error) {
+    console.error(error.response.data.message);
+    const message = error.response.data.message;
+
+    message[0] === "invalid email" &&
+      toast.error("Email inválido!", {
+        style: {
+          color: "var(--color-negative)",
+        },
+      });
+
+    message === "Incorrect email / password combination" &&
+      toast.error("Email / Senha inválidos!", {
+        style: {
+          color: "var(--color-negative)",
+        },
+      });
+
+    setLoading(false);
+    return false;
+  } finally {
   }
 };

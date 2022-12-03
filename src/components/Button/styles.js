@@ -19,6 +19,7 @@ const buttonVariants = {
   `,
 
   colored: css`
+    width: 100%;
     background-color: var(--color-primary);
     border: 0.125rem solid var(--color-primary);
 
@@ -65,7 +66,20 @@ export const StyledButton = styled.button`
   color: var(--color-white);
 
   :hover {
+    animation: pulsate-bck 1s ease-in-out infinite both;
     cursor: pointer;
+  }
+
+  @keyframes pulsate-bck {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.97);
+    }
+    100% {
+      transform: scale(1);
+    }
   }
 
   ${({ size }) => buttonVariants[size]}

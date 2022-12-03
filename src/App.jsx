@@ -1,12 +1,15 @@
-import { Route, Routes } from "react-router-dom";
-import { LoginPage } from "./pages/login";
-import { RegisterPage } from "./pages/register";
+import { AnimatePresence } from "framer-motion";
+import { useState } from "react";
+import { BrowserRouter } from "react-router-dom";
+import { PageRoutes } from "./routes";
 
 export const App = () => {
+  const [user, setUser] = useState(null);
   return (
-    <Routes>
-      <Route path="/" element={<LoginPage />} />
-      <Route path="register" element={<RegisterPage className="container" />} />
-    </Routes>
+    <BrowserRouter>
+      <AnimatePresence>
+        <PageRoutes user={user} setUser={setUser} />
+      </AnimatePresence>
+    </BrowserRouter>
   );
 };

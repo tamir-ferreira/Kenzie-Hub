@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { FormLogin } from "../../components/Form/FormLogin";
 import { Button } from "../../components/Button";
 
-export const LoginPage = () => {
+export const LoginPage = ({ setUser }) => {
   const navigate = useNavigate();
 
   return (
@@ -13,7 +13,7 @@ export const LoginPage = () => {
         <img src={logo} alt="logotipo Kenzie Hub" />
       </nav>
       <main>
-        <FormLogin />
+        <FormLogin setUser={setUser} />
         <p className="font-headline-gray">Ainda não possui uma conta?</p>
         <Button
           type="button"
