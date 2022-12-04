@@ -33,7 +33,7 @@ export const FormLogin = ({ setUser }) => {
       localStorage.setItem("@USERID", response.user.id);
 
       setTimeout(() => {
-        navigate("home");
+        navigate("dashboard");
       }, 3000);
     }
   };

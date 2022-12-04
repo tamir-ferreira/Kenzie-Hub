@@ -2,11 +2,11 @@
 import construction2 from "../../images/construction2.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
-import { StyledHome } from "./styles";
+import { StyledDashboard } from "./styles";
 import { AnimBlur } from "../../components/Animation";
 import { Header } from "../../components/Header";
 
-export const HomePage = ({ user, setUser }) => {
+export const DashboardPage = ({ user, setUser }) => {
   const { name, course_module } = user;
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -17,7 +17,7 @@ export const HomePage = ({ user, setUser }) => {
   };
 
   return (
-    <StyledHome>
+    <StyledDashboard>
       <Header
         className="container"
         onClick={() => handleLogout()}
@@ -47,6 +47,6 @@ export const HomePage = ({ user, setUser }) => {
           </AnimBlur>
         </div>
       </section>
-    </StyledHome>
+    </StyledDashboard>
   );
 };

@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledHome = styled.main`
+export const StyledDashboard = styled.main`
   width: 100%;
   header {
     display: flex;
