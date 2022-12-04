@@ -30,10 +30,10 @@ export const DashboardPage = ({ user, setUser }) => {
       </section>
       <section className="container">
         <h3 className="font-title-2">
-          Que pena! Estamos em desenvolcimento :(
+          Que pena! Estamos em desenvolvimento :(
         </h3>
         <h4 className="font-title-2-regular">
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades
+          Nossa aplicação está em desenvolvimento, em breve teremos novidades...
         </h4>
         <div>
           <AnimBlur>
