@@ -9,6 +9,7 @@ export const StyledRegister = styled.div`
     display: flex;
     flex-direction: column;
     padding: 42px 22px 30px 22px;
+    border-radius: var(--border-radius-1);
     background-color: var(--color-gray-3);
     color: var(--color-gray-0);
     /* border: 1px solid yellow; */
@@ -19,7 +20,16 @@ export const StyledRegister = styled.div`
     justify-content: space-between;
     align-items: center;
     margin: 48px 0;
-    /* width: 100%; */
+    width: 100%;
     /* background-color: red; */
+  }
+
+  @media only screen and (max-width: 600px) {
+    /* width: 100%; */
+    /* margin: 50px; */
+    padding: 0 12px;
+    /* background-color: red; */
+    overflow-x: hidden;
+    margin-bottom: 30px;
   }
 `;

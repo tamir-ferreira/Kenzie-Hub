@@ -17,12 +17,12 @@ export const Select = ({ register, error }) => {
       </label>
       <select id={register.name} className={error && "error"} {...register}>
         <option value="">Selecione aqui o Módulo</option>
-        <option value="Módulo 1">Primeiro Módulo</option>
-        <option value="Módulo 2">Segundo Módulo</option>
-        <option value="Módulo 3">Terceiro Módulo</option>
-        <option value="Módulo 4">Quarto Módulo</option>
-        <option value="Módulo 5">Quinto Módulo</option>
-        <option value="Módulo 6">Sexto Módulo</option>
+        <option value="Primeiro Módulo">Primeiro Módulo</option>
+        <option value="Segundo Módulo">Segundo Módulo</option>
+        <option value="Terceiro Módulo">Terceiro Módulo</option>
+        <option value="Quarto Módulo">Quarto Módulo</option>
+        <option value="Quinto Módulo">Quinto Módulo</option>
+        <option value="Sexto Módulo">Sexto Módulo</option>
       </select>
       {error && (
         <p className="font-headline" aria-label="erro na validação do campo">

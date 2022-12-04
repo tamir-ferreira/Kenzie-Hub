@@ -32,6 +32,11 @@ export const StyledTypography = createGlobalStyle`
     font-size: var(--font-size-2);
     font-weight: var(--font-weigth-1);
   }
+
+  .font-title-2-regular {
+    font-size: var(--font-size-2);
+    font-weight: var(--font-weigth-2);
+  }
   
   .font-title-3 {
     font-size: var(--font-size-3);

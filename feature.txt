@@ -1,0 +1,8 @@
+import { FaPlus } from "react-icons/fa";
+
+    {/* <div>
+        <h3 className="font-title-2">Tecnologias</h3>
+        <Button size="plus" color="dark_gray">
+        <FaPlus size={13} />
+        </Button>
+    </div> */}

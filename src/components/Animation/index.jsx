@@ -1,30 +1,23 @@
 import { motion } from "framer-motion";
 
-/* export const Animation = ({ children }) => {
-  return (
-    <motion.div
-      initial={{ opacity: 0 }}
-      // initial={{ transform: { transitionY: 0 } }}
-      animate={{ opacity: 1 }}
-      // animate={{ transform: { transitionY: "1000px" } }}
-      exit={{ opacity: 0 }}
-      // exit={{ transform: { transitionY: 0 } }}
-      transition={{ duration: 1 }}
-    >
-      {children}
-    </motion.div>
-  );
-}; */
-
-/* export const Animation = ({ isVisible, children }) => (
-  <motion.div animate={{ opacity: isVisible ? 1 : 0 }}>{children}</motion.div>
-); */
-
 export const AnimBlur = ({ children }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
     transition={{ duration: 3 }}
+  >
+    {children}
+  </motion.div>
+);
+
+export const AnimZoom = ({ children }) => (
+  <motion.div
+    animate={{
+      scale: [0, 1],
+      opacity: [0, 1],
+      rotate: [0, 360],
+    }}
+    transition={{ duration: 1, ease: "easeIn" }}
   >
     {children}
   </motion.div>
@@ -52,7 +45,7 @@ export const AnimSlideRight = ({ children, delay }) => (
 
 export const AnimSlideDown = ({ children, delay }) => (
   <motion.div
-    initial={{ translateY: "-120vh" }}
+    initial={{ translateY: "-150vh" }}
     animate={{ translateY: 0 }}
     transition={{ duration: 1.5, delay: delay, ease: "easeInOut" }}
   >

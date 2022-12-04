@@ -45,7 +45,7 @@ export const FormRegister = () => {
         <h2 className="font-title-1">Crie sua conta</h2>
         <p className="font-headline-gray">Rápido e grátis, vamos nessa</p>
       </div>
-      <AnimSlideLeft delay={0.5}>
+      <AnimSlideLeft delay={0.4}>
         <Input
           label="Nome"
           type="text"
@@ -72,7 +72,7 @@ export const FormRegister = () => {
           error={errors.password?.message}
         />
       </AnimSlideLeft>
-      <AnimSlideRight delay={0.6}>
+      <AnimSlideRight delay={0.7}>
         <Input
           label="Confirmar Senha"
           type="password"
@@ -81,7 +81,7 @@ export const FormRegister = () => {
           error={errors.passwordConfirm?.message}
         />
       </AnimSlideRight>
-      <AnimSlideLeft delay={0.7}>
+      <AnimSlideLeft delay={0.8}>
         <Input
           label="Bio"
           type="text"
@@ -90,7 +90,7 @@ export const FormRegister = () => {
           error={errors.bio?.message}
         />
       </AnimSlideLeft>
-      <AnimSlideRight delay={0.7}>
+      <AnimSlideRight delay={0.9}>
         <Input
           label="Contato"
           type="text"
@@ -99,7 +99,7 @@ export const FormRegister = () => {
           error={errors.contact?.message}
         />
       </AnimSlideRight>
-      <AnimSlideLeft delay={0.8}>
+      <AnimSlideLeft delay={1}>
         <Select
           register={register("course_module")}
           error={errors.course_module?.message}

@@ -30,7 +30,7 @@ export const StyledHome = styled.main`
   /* position: relative; */
 
   section:nth-child(3) {
-    margin-top: 18px;
+    margin-top: 37px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -42,7 +42,10 @@ export const StyledHome = styled.main`
       align-items: center;
     }
 
-    div:nth-child(2) {
+    > h4 {
+      margin-top: 23px;
+    }
+    div:nth-child(3) {
       margin-top: 50px;
       display: flex;
       align-items: center;
@@ -51,37 +54,62 @@ export const StyledHome = styled.main`
     }
 
     img {
-      /* object-fit: fill; */
+      cursor: help;
       width: 400px;
       border-radius: 50%;
       z-index: 10;
       box-shadow: 0 0 15px var(--color-gray-2);
-      /* position: relative; */
+    }
 
-      animation: heartbeat 1.5s ease-in-out infinite both;
+    @keyframes heartbeat {
+      from {
+        transform: scale(1);
+        transform-origin: center center;
+        animation-timing-function: ease-out;
+      }
+      10% {
+        transform: scale(0.91);
+        animation-timing-function: ease-in;
+      }
+      17% {
+        transform: scale(0.98);
+        animation-timing-function: ease-out;
+      }
+      33% {
+        transform: scale(0.87);
+        animation-timing-function: ease-in;
+      }
+      45% {
+        transform: scale(1);
+        animation-timing-function: ease-out;
+      }
+    }
+  }
 
-      @keyframes heartbeat {
-        from {
-          transform: scale(1);
-          transform-origin: center center;
-          animation-timing-function: ease-out;
-        }
-        10% {
-          transform: scale(0.91);
-          animation-timing-function: ease-in;
-        }
-        17% {
-          transform: scale(0.98);
-          animation-timing-function: ease-out;
-        }
-        33% {
-          transform: scale(0.87);
-          animation-timing-function: ease-in;
-        }
-        45% {
-          transform: scale(1);
-          animation-timing-function: ease-out;
-        }
+  @keyframes flip {
+    0% {
+      transform: translateY(0) rotateX(0);
+      transform-origin: 50% 100%;
+    }
+    100% {
+      transform: translateY(100%) rotateX(180deg);
+      transform-origin: 50% 0;
+    }
+  }
+
+  @media only screen and (max-width: 600px) {
+    padding: 0 12px;
+    /* overflow-x: hidden; */
+    /* margin-bottom: 30px; */
+
+    section:nth-child(3) {
+      width: 100%;
+      /* padding-bottom: 30px; */
+
+      img {
+        /* background-color: red; */
+        width: 95%;
+        object-fit: fill;
       }
     }
   }

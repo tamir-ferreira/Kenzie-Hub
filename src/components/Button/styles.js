@@ -22,6 +22,7 @@ const buttonVariants = {
     width: 100%;
     background-color: var(--color-primary);
     border: 0.125rem solid var(--color-primary);
+    animation: pulsate-bck 1s ease-in-out infinite both;
 
     :hover {
       background-color: var(--color-primary-focus);
@@ -53,6 +54,13 @@ const buttonVariants = {
     border: 0.125rem solid var(--color-primary-disable);
     pointer-events: none;
   `,
+
+  image: css`
+    :focus {
+      /* animation: flip 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; */
+      animation: heartbeat 1.5s ease-in-out 1s infinite both;
+    }
+  `,
 };
 
 export const StyledButton = styled.button`
@@ -66,7 +74,6 @@ export const StyledButton = styled.button`
   color: var(--color-white);
 
   :hover {
-    animation: pulsate-bck 1s ease-in-out infinite both;
     cursor: pointer;
   }
 
@@ -75,7 +82,7 @@ export const StyledButton = styled.button`
       transform: scale(1);
     }
     50% {
-      transform: scale(0.97);
+      transform: scale(0.98);
     }
     100% {
       transform: scale(1);

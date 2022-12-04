@@ -1,13 +1,12 @@
-import logo from "../../images/logo.svg";
-import construction from "../../images/construction.png";
+// import logo from "../../images/logo.svg";
+import construction2 from "../../images/construction2.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";
 import { StyledHome } from "./styles";
 import { AnimBlur } from "../../components/Animation";
-import { FaPlus } from "react-icons/fa";
+import { Header } from "../../components/Header";
 
 export const HomePage = ({ user, setUser }) => {
-  //   console.log(user);
   const { name, course_module } = user;
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -19,18 +18,11 @@ export const HomePage = ({ user, setUser }) => {
 
   return (
     <StyledHome>
-      <header>
-        <nav className="container">
-          <img src={logo} alt="logotipo Kenzie Hub" />
-          <Button
-            type="button"
-            onClick={() => handleLogout()}
-            size="small"
-            color="dark_gray"
-            children="Sair"
-          />
-        </nav>
-      </header>
+      <Header
+        className="container"
+        onClick={() => handleLogout()}
+        children="Sair"
+      />
       <section>
         <div className="container">
           <h2 className="font-title-1">Olá, {name}</h2>
@@ -38,15 +30,20 @@ export const HomePage = ({ user, setUser }) => {
         </div>
       </section>
       <section className="container">
-        <div>
-          <h3 className="font-title-2">Tecnologias</h3>
-          <Button size="plus" color="dark_gray">
-            <FaPlus size={13} />
-          </Button>
-        </div>
+        <h3 className="font-title-2">
+          Que pena! Estamos em desenvolcimento :(
+        </h3>
+        <h4 className="font-title-2-regular">
+          Nossa aplicação está em desenvolvimento, em breve teremos novidades
+        </h4>
         <div>
           <AnimBlur>
-            <img src={construction} alt="página em construção" />
+            <Button
+              size="image"
+              onClick={(event) => (event.target.className = "beat")}
+            >
+              <img src={construction2} alt="página em construção" />
+            </Button>
           </AnimBlur>
         </div>
       </section>

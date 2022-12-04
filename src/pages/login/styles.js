@@ -1,6 +1,10 @@
 import styled from "styled-components";
 
 export const StyledLogin = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100vh;
   width: 100%;
   max-width: 370px;
   margin: 0 auto;
@@ -20,6 +24,7 @@ export const StyledLogin = styled.div`
     align-items: center;
     background-color: var(--color-gray-3);
     color: var(--color-gray-0);
+    border-radius: var(--border-radius-1);
     /* border: 1px solid yellow; */
 
     > p {
@@ -28,6 +33,10 @@ export const StyledLogin = styled.div`
 
     button {
       width: 100%;
+    }
+
+    @media only screen and (max-width: 600px) {
+      margin: 12px;
     }
   }
 `;
