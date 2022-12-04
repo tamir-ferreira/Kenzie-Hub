@@ -8,7 +8,6 @@ export const Input = ({
   register,
   error,
 }) => {
-  // console.log(register);
   return (
     <StyledInput>
       <label className="font-headline" htmlFor={register.name}>

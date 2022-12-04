@@ -11,7 +11,6 @@ export const StyledDashboard = styled.main`
     nav {
       display: flex;
       justify-content: space-between;
-      /* width: 100%; */
     }
   }
 
@@ -27,7 +26,6 @@ export const StyledDashboard = styled.main`
       justify-content: space-between;
     }
   }
-  /* position: relative; */
 
   section:nth-child(3) {
     margin-top: 37px;
@@ -36,7 +34,6 @@ export const StyledDashboard = styled.main`
     justify-content: center;
 
     div:nth-child(1) {
-      /* background-color: red; */
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -45,12 +42,12 @@ export const StyledDashboard = styled.main`
     > h4 {
       margin-top: 23px;
     }
+
     div:nth-child(3) {
       margin-top: 50px;
       display: flex;
       align-items: center;
       justify-content: center;
-      /* background-color: red; */
     }
 
     img {
@@ -99,15 +96,11 @@ export const StyledDashboard = styled.main`
 
   @media only screen and (max-width: 600px) {
     padding: 0 12px;
-    /* overflow-x: hidden; */
-    /* margin-bottom: 30px; */
 
     section:nth-child(3) {
       width: 100%;
-      /* padding-bottom: 30px; */
 
       img {
-        /* background-color: red; */
         width: 95%;
         object-fit: fill;
       }

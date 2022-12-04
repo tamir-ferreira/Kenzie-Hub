@@ -47,20 +47,7 @@ export const AnimSlideDown = ({ children, delay }) => (
   <motion.div
     initial={{ translateY: "-150vh" }}
     animate={{ translateY: 0 }}
-    transition={{ duration: 1.5, delay: delay, ease: "easeInOut" }}
-  >
-    {children}
-  </motion.div>
-);
-
-export const AnimRotate = ({ children }) => (
-  <motion.div
-    animate={{
-      scale: [1, 2, 2, 1, 1],
-      rotate: [0, 0, 270, 270, 0],
-      borderRadius: ["20%", "20%", "50%", "50%", "20%"],
-      duration: 1.5,
-    }}
+    transition={{ duration: 2, delay: delay, ease: "easeInOut" }}
   >
     {children}
   </motion.div>

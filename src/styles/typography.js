@@ -64,5 +64,4 @@ export const StyledTypography = createGlobalStyle`
     font-weight: var(--font-weigth-2);
     font-style: italic;
   }
-
-  `;
+`;

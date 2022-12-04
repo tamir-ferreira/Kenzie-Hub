@@ -14,10 +14,9 @@ export const StyledLogin = styled.div`
     justify-content: center;
     align-items: center;
     margin: 48px 0 35px 0;
-    /* border: 1px solid yellow; */
   }
+
   main {
-    /* width: 100%; */
     display: flex;
     flex-direction: column;
     padding: 42px 22px 30px 22px;
@@ -25,7 +24,6 @@ export const StyledLogin = styled.div`
     background-color: var(--color-gray-3);
     color: var(--color-gray-0);
     border-radius: var(--border-radius-1);
-    /* border: 1px solid yellow; */
 
     > p {
       margin: 34px 0 22px 0;

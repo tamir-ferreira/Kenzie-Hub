@@ -1,4 +1,3 @@
-// import logo from "../../images/logo.svg";
 import construction2 from "../../images/construction2.png";
 import { useNavigate } from "react-router-dom";
 import { Button } from "../../components/Button";

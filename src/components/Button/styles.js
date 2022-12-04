@@ -57,7 +57,6 @@ const buttonVariants = {
 
   image: css`
     :focus {
-      /* animation: flip 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both; */
       animation: heartbeat 1.5s ease-in-out 1s infinite both;
     }
   `,

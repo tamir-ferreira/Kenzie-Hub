@@ -16,7 +16,6 @@ export const registerSchema = yup.object().shape({
     .string()
     .required("* campo obrigatório")
     .min(8, "* mínimo de 8 caracteres")
-    // .matches(/(?=.*?[A-Z])/, "* necessário pelo menos 1 letra maiúscula")
     .matches(/(?=.*?[a-z])/, "* necessário pelo menos 1 letra minúscula")
     .matches(/(?=.*?[0-9])/, "* necessário pelo menos 1 número")
     .matches(
@@ -28,7 +27,6 @@ export const registerSchema = yup.object().shape({
     .string()
     .required("* campo obrigatório")
     .min(8, "* mínimo de 8 caracteres")
-    // .matches(/(?=.*?[A-Z])/, "* necessário pelo menos 1 letra maiúscula")
     .matches(/(?=.*?[a-z])/, "* necessário pelo menos 1 letra minúscula")
     .matches(/(?=.*?[0-9])/, "* necessário pelo menos 1 número")
     .matches(
@@ -43,10 +41,6 @@ export const registerSchema = yup.object().shape({
   bio: yup.string().required("* campo obrigatório"),
 
   contact: yup.string().required("* campo obrigatório"),
-  // .matches(
-  //   /^\(?[1-9]{2}\)? ?(?:[2-8]|9[1-9])[0-9]{3}\-?[0-9]{4}$/,
-  //   "* número de telefone inválido"
-  // ),
 
   course_module: yup.string().required("* campo obrigatório"),
 });

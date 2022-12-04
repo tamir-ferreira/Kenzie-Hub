@@ -9,14 +9,13 @@ export const StyledGlobals = createGlobalStyle`
 
   :root {
     --border-radius-1: 4px;
-    /* --border-radius-2: .3125rem; */
     color: var(--color-gray-0);
   }
 
   body {
     background: var(--color-gray-4);
-   max-width: 100vw;
-   /* overflow-x: hidden; */
+    max-width: 100vw;
+
   }
 
   ul {
@@ -34,7 +33,6 @@ export const StyledGlobals = createGlobalStyle`
   }
 
   .beat{
-    /* animation: heartbeat 1.5s ease-in-out 1s infinite both */
     animation: flip 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
   }
 

@@ -3,7 +3,7 @@ import { Button } from "../../Button";
 import { Input } from "../../Input";
 import { Select } from "../../Select";
 import { StyledForm } from "../styles";
-import { set, useForm } from "react-hook-form";
+import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
 import { createUser } from "../../../services/api";
@@ -24,7 +24,6 @@ export const FormRegister = () => {
   });
 
   const submitForm = async (data) => {
-    // enviar para API
     const user = {
       name: data.name,
       email: data.email,

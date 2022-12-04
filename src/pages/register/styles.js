@@ -12,7 +12,6 @@ export const StyledRegister = styled.div`
     border-radius: var(--border-radius-1);
     background-color: var(--color-gray-3);
     color: var(--color-gray-0);
-    /* border: 1px solid yellow; */
   }
 
   nav {
@@ -21,15 +20,14 @@ export const StyledRegister = styled.div`
     align-items: center;
     margin: 48px 0;
     width: 100%;
-    /* background-color: red; */
   }
 
   @media only screen and (max-width: 600px) {
-    /* width: 100%; */
-    /* margin: 50px; */
     padding: 0 12px;
-    /* background-color: red; */
-    overflow-x: hidden;
     margin-bottom: 30px;
+
+    main {
+      overflow-x: hidden;
+    }
   }
 `;

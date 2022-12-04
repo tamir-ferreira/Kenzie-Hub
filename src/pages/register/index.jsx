@@ -1,4 +1,3 @@
-// import logo from "../../images/logo.svg";
 import { StyledRegister } from "./styles";
 import { FormRegister } from "../../components/Form/FormRegister";
 import { AnimSlideDown } from "../../components/Animation";

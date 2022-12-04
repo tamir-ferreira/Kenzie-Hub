@@ -18,7 +18,6 @@ export const createUser = async (user) => {
       });
     return true;
   } catch (error) {
-    // console.error(error.response.data.message);
     const message = error.response.data.message;
 
     message === "Email already exists" &&
@@ -36,7 +35,6 @@ export const loginUser = async (user, setLoading) => {
     setLoading(true);
     const response = await api.post("/sessions", user);
 
-    // console.log(response.data);
     response.status === 200 &&
       toast.success("Logado com Sucesso!! Aguarde...", {
         style: {
@@ -46,7 +44,6 @@ export const loginUser = async (user, setLoading) => {
 
     return response.data;
   } catch (error) {
-    console.error(error.response.data.message);
     const message = error.response.data.message;
 
     message[0] === "invalid email" &&
@@ -65,6 +62,5 @@ export const loginUser = async (user, setLoading) => {
 
     setLoading(false);
     return false;
-  } finally {
   }
 };

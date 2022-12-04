@@ -1,15 +1,6 @@
 import { StyledSelect } from "./styled";
 
 export const Select = ({ register, error }) => {
-  /* const selected = (event) => {
-    console.log("ók");
-    event.target.value
-      ? event.target.classList.add("selected")
-      : event.target.classList.remove("selected");
-  }; */
-  /* const selected = (event) => (!event.target.value ? true : false);
-  console.log(selected); */
-
   return (
     <StyledSelect>
       <label className="font-headline" htmlFor={register.name}>
