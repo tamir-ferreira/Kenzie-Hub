@@ -1,18 +1,15 @@
+import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { Button } from "../Button";
 
-export const Header = ({ className, onClick, children }) => {
+export const Header = ({ className }) => {
   return (
     <header>
       <nav className={className}>
         <img src={logo} alt="logotipo Kenzie Hub" />
-        <Button
-          type="button"
-          onClick={onClick}
-          size="small"
-          color="dark_gray"
-          children={children}
-        />
+        <Link to={`/`}>
+          <Button size="small" color="dark_gray" children="Voltar" />
+        </Link>
       </nav>
     </header>
   );

@@ -29,6 +29,7 @@ export const StyledLogin = styled.div`
       margin: 34px 0 22px 0;
     }
 
+    a,
     button {
       width: 100%;
     }
