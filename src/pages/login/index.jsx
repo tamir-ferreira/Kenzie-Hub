@@ -5,7 +5,7 @@ import { FormLogin } from "../../components/Form/FormLogin";
 import { Button } from "../../components/Button";
 import { AnimSlideRight, AnimZoom } from "../../components/Animation";
 
-export const LoginPage = ({ setUser }) => {
+export const LoginPage = () => {
   return (
     <StyledLogin>
       <div>
@@ -16,7 +16,7 @@ export const LoginPage = ({ setUser }) => {
         </AnimSlideRight>
         <AnimZoom>
           <main>
-            <FormLogin setUser={setUser} />
+            <FormLogin />
             <p className="font-headline-gray">Ainda não possui uma conta?</p>
             <Link to={"/register"}>
               <Button size="default" color="gray" children="Cadastre-se" />

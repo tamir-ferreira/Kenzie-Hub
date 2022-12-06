@@ -3,15 +3,12 @@ import { LoginPage } from "../pages/login";
 import { RegisterPage } from "../pages/register";
 import { DashboardPage } from "../pages/dashboard";
 
-export const PageRoutes = ({ user, setUser }) => {
+export const PageRoutes = () => {
   return (
     <Routes>
-      <Route path="/" element={<LoginPage setUser={setUser} />} />
+      <Route path="/" element={<LoginPage />} />
       <Route path="register" element={<RegisterPage />} />
-      <Route
-        path="dashboard"
-        element={<DashboardPage user={user} setUser={setUser} />}
-      />
+      <Route path="dashboard" element={<DashboardPage />} />
     </Routes>
   );
 };

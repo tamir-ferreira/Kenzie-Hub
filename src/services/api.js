@@ -1,21 +1,22 @@
 import axios from "axios";
 import toast from "react-hot-toast";
 
-const api = axios.create({
+export const api = axios.create({
   baseURL: "https://kenziehub.herokuapp.com",
   timeout: 5000,
 });
 
 export const createUser = async (user) => {
   try {
-    const response = await api.post("/users", user);
+    const { status } = await api.post("/users", user);
 
-    response.status === 201 &&
+    status === 201 &&
       toast.success("Cadastrado com Sucesso!! Redirecionando...", {
         style: {
           color: "var(--color-success)",
         },
       });
+
     return true;
   } catch (error) {
     const message = error.response.data.message;
@@ -26,23 +27,23 @@ export const createUser = async (user) => {
           color: "var(--color-negative)",
         },
       });
+
     return false;
   }
 };
 
-export const loginUser = async (user, setLoading) => {
+export const loginUser = async (user) => {
   try {
-    setLoading(true);
-    const response = await api.post("/sessions", user);
+    const { data, status } = await api.post("/sessions", user);
 
-    response.status === 200 &&
+    status === 200 &&
       toast.success("Logado com Sucesso!! Aguarde...", {
         style: {
           color: "var(--color-success)",
         },
       });
 
-    return response.data;
+    return data;
   } catch (error) {
     const message = error.response.data.message;
 
@@ -60,7 +61,22 @@ export const loginUser = async (user, setLoading) => {
         },
       });
 
-    setLoading(false);
     return false;
+  }
+};
+
+export const getUsers = async (token) => {
+  try {
+    const { data } = await api.get("/profile", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+
+    return data;
+  } catch (error) {
+    console.error(error);
+
+    return null;
   }
 };

@@ -7,13 +7,12 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
-import { loginUser } from "../../../services/api";
-import { useNavigate } from "react-router-dom";
+import { useContext } from "react";
+import { UserContext } from "../../../context/UserContext";
 
-export const FormLogin = ({ setUser }) => {
-  const navigate = useNavigate();
+export const FormLogin = () => {
   const [showPass, setShowPass] = useState(false);
-  const [loading, setLoading] = useState(false);
+  const { login, loading } = useContext(UserContext);
 
   const {
     register,
@@ -25,21 +24,8 @@ export const FormLogin = ({ setUser }) => {
     resolver: yupResolver(registerSchema),
   });
 
-  const submitForm = async (data) => {
-    const response = await loginUser(data, setLoading);
-    if (response) {
-      setUser(response.user);
-      localStorage.setItem("@TOKEN", response.token);
-      localStorage.setItem("@USERID", response.user.id);
-
-      setTimeout(() => {
-        navigate("dashboard");
-      }, 3000);
-    }
-  };
-
   return (
-    <StyledForm onSubmit={handleSubmit(submitForm)} noValidate>
+    <StyledForm onSubmit={handleSubmit(login)} noValidate>
       <div>
         <h2 className="font-title-1">Login</h2>
       </div>
