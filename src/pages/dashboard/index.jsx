@@ -1,11 +1,14 @@
-import construction2 from "../../images/construction2.png";
+// import construction2 from "../../images/construction2.png";
+import { FaPlus } from "react-icons/fa";
+import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "../../components/Button";
 import { StyledDashboard } from "./styles";
-import { AnimBlur } from "../../components/Animation";
+// import { AnimBlur } from "../../components/Animation";
 import { Header } from "../../components/Header";
 import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
+import { Modal } from "../../components/Modal";
 
 export const DashboardPage = () => {
   const { user, setUser, waitUser } = useContext(UserContext);
@@ -34,23 +37,61 @@ export const DashboardPage = () => {
         </div>
       </section>
       <section className="container">
-        <h3 className="font-title-2">
-          Que pena! Estamos em desenvolvimento :(
-        </h3>
-        <h4 className="font-title-2-regular">
-          Nossa aplicação está em desenvolvimento, em breve teremos novidades...
-        </h4>
         <div>
-          <AnimBlur>
-            <Button
-              size="image"
-              onClick={(event) => (event.target.className = "beat")}
-            >
-              <img src={construction2} alt="página em construção" />
-            </Button>
-          </AnimBlur>
+          <h3 className="font-title-2">Tecnologias</h3>
+          <Button size="plus" color="dark_gray" onClick={() => M}>
+            <FaPlus size={13} />
+          </Button>
         </div>
+        <ul>
+          <li>
+            <h4 className="font-title-3">React JS</h4>
+            <div>
+              <span className="font-headline-gray">Intermediário</span>
+              <span>
+                <FaTrashAlt size={13} />
+              </span>
+            </div>
+          </li>
+          <li>
+            <h4 className="font-title-3">React JS</h4>
+            <div>
+              <span className="font-headline-gray">Intermediário</span>
+              <span>
+                <FaTrashAlt size={13} />
+              </span>
+            </div>
+          </li>
+          <li>
+            <h4 className="font-title-3">React JS</h4>
+            <div>
+              <span className="font-headline-gray">Intermediário</span>
+              <span>
+                <FaTrashAlt size={13} />
+              </span>
+            </div>
+          </li>
+          <li>
+            <h4 className="font-title-3">React JS</h4>
+            <div>
+              <span className="font-headline-gray">Intermediário</span>
+              <span>
+                <FaTrashAlt size={13} />
+              </span>
+            </div>
+          </li>
+          <li>
+            <h4 className="font-title-3">React JS</h4>
+            <div>
+              <span className="font-headline-gray">Intermediário</span>
+              <span>
+                <FaTrashAlt size={13} />
+              </span>
+            </div>
+          </li>
+        </ul>
       </section>
+      <Modal />
     </StyledDashboard>
   ) : (
     <Navigate to="/" />

@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
 import { Button } from "../Button";
 
-export const Header = ({ className, onClick }) => {
+export const Header = ({ className, onClick, children }) => {
   return (
     <header>
       <nav className={className}>
@@ -12,7 +12,7 @@ export const Header = ({ className, onClick }) => {
             size="small"
             color="dark_gray"
             onClick={onClick}
-            children="Voltar"
+            children={children}
           />
         </Link>
       </nav>

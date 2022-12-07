@@ -7,7 +7,7 @@ export const RegisterPage = () => {
   return (
     <StyledRegister>
       <AnimSlideDown>
-        <Header />
+        <Header children={"Voltar"} />
         <main>
           <FormRegister />
         </main>
