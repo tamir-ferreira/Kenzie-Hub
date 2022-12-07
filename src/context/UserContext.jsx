@@ -14,6 +14,7 @@ export const UserProvider = ({ children }) => {
   useEffect(() => {
     const loadUser = async () => {
       const token = localStorage.getItem("@TOKEN");
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
 
       if (!token) {
         setWaitUser(false);
@@ -21,13 +22,20 @@ export const UserProvider = ({ children }) => {
       }
 
       const response = await getUsers(token);
-      if (response !== null) setUser(response);
+      if (response !== null) {
+        setUser(response);
+        navigate("/dashboard");
+      } else localStorage.clear();
 
       setWaitUser(false);
     };
 
     loadUser();
   }, []);
+
+  if (waitUser) {
+    return null;
+  }
 
   const login = async (data) => {
     setLoading(true);
@@ -36,8 +44,9 @@ export const UserProvider = ({ children }) => {
 
     if (response) {
       setUser(userResponse);
-      localStorage.setItem("@TOKEN", token);
       localStorage.setItem("@USERID", userResponse.id);
+      localStorage.setItem("@TOKEN", token);
+      api.defaults.headers.common.authorization = `Bearer ${token}`;
 
       setTimeout(() => {
         setLoading(false);

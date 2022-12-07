@@ -25,6 +25,20 @@ export const StyledModal = styled.div`
       border-radius: var(--border-radius-1) var(--border-radius-1) 0 0;
       background-color: var(--color-gray-2);
       color: var(--color-gray-0);
+
+      > h4 {
+        color: var(--color-gray-0);
+      }
+
+      > button {
+        /* width: 20px; */
+        font-size: 16px;
+        color: var(--color-gray-1);
+        :hover {
+          transform: scale(1.2);
+          color: var(--color-negative);
+        }
+      }
     }
 
     > form {

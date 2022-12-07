@@ -1,13 +1,19 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useContext } from "react";
 import { useForm } from "react-hook-form";
+import { TechContext } from "../../context/TechContext";
+import { createTech } from "../../services/api";
 import { AnimSlideDown } from "../Animation";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Select } from "../Select";
+import { options } from "./data";
 import { modalSchema } from "./schemas";
 import { StyledModal } from "./styles";
 
 export const Modal = () => {
+  const { createTechSubmit, setModalOpen } = useContext(TechContext);
+
   const {
     register,
     handleSubmit,
@@ -18,34 +24,26 @@ export const Modal = () => {
     resolver: yupResolver(modalSchema),
   });
 
-  const onSubmit = (data) => {
-    console.log(data);
-  };
-
   return (
     <StyledModal>
       <div>
         <div>
           <h4 className="font-title-3">Cadastrar Tecnologia</h4>
-          <span>X</span>
+          <Button onClick={() => setModalOpen(false)}>X</Button>
         </div>
-        <form onSubmit={handleSubmit(onSubmit)} noValidate>
+        <form onSubmit={handleSubmit(createTechSubmit)} noValidate>
           <Input
             label="Nome"
             type="text"
             placeholder="Digite aqui a tecnologia"
-            register={register("email")}
-            // error={errors.email?.message}
+            register={register("title")}
+            error={errors.title?.message}
           />
-          {/* <select name="" id="">
-            <option value="">Selecione aqui seu nível</option>
-            <option value="iniciante">Iniciante</option>
-            <option value="intermediario">Intermediário</option>
-            <option value="avancado">Avançado</option>
-          </select> */}
           <Select
-            register={register("course_module")}
-            error={errors.course_module?.message}
+            options={options}
+            register={register("status")}
+            label={"Selecionar Nível"}
+            error={errors.status?.message}
           />
           {/* <AnimSlideDown delay={1.5}> */}
           <Button

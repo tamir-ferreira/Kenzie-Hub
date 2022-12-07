@@ -5,13 +5,16 @@ import { Button } from "../../components/Button";
 import { StyledDashboard } from "./styles";
 // import { AnimBlur } from "../../components/Animation";
 import { Header } from "../../components/Header";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
 import { Modal } from "../../components/Modal";
+import { TechContext } from "../../context/TechContext";
 
 export const DashboardPage = () => {
   const { user, setUser, waitUser } = useContext(UserContext);
+  const { modalOpen, setModalOpen } = useContext(TechContext);
+  // const [modalOpen, setModalOpen] = useState(false);
 
   if (waitUser) {
     return null;
@@ -39,59 +42,29 @@ export const DashboardPage = () => {
       <section className="container">
         <div>
           <h3 className="font-title-2">Tecnologias</h3>
-          <Button size="plus" color="dark_gray" onClick={() => M}>
+          <Button
+            size="plus"
+            color="dark_gray"
+            onClick={() => setModalOpen(true)}
+          >
             <FaPlus size={13} />
           </Button>
         </div>
         <ul>
-          <li>
-            <h4 className="font-title-3">React JS</h4>
-            <div>
-              <span className="font-headline-gray">Intermediário</span>
-              <span>
-                <FaTrashAlt size={13} />
-              </span>
-            </div>
-          </li>
-          <li>
-            <h4 className="font-title-3">React JS</h4>
-            <div>
-              <span className="font-headline-gray">Intermediário</span>
-              <span>
-                <FaTrashAlt size={13} />
-              </span>
-            </div>
-          </li>
-          <li>
-            <h4 className="font-title-3">React JS</h4>
-            <div>
-              <span className="font-headline-gray">Intermediário</span>
-              <span>
-                <FaTrashAlt size={13} />
-              </span>
-            </div>
-          </li>
-          <li>
-            <h4 className="font-title-3">React JS</h4>
-            <div>
-              <span className="font-headline-gray">Intermediário</span>
-              <span>
-                <FaTrashAlt size={13} />
-              </span>
-            </div>
-          </li>
-          <li>
-            <h4 className="font-title-3">React JS</h4>
-            <div>
-              <span className="font-headline-gray">Intermediário</span>
-              <span>
-                <FaTrashAlt size={13} />
-              </span>
-            </div>
-          </li>
+          {user.techs.map((tech) => (
+            <li key={tech.id}>
+              <h4 className="font-title-3">{tech.title}</h4>
+              <div>
+                <span className="font-headline-gray">{tech.status}</span>
+                <span>
+                  <FaTrashAlt size={13} />
+                </span>
+              </div>
+            </li>
+          ))}
         </ul>
       </section>
-      <Modal />
+      {modalOpen && <Modal />}
     </StyledDashboard>
   ) : (
     <Navigate to="/" />

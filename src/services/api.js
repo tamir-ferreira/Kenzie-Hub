@@ -35,14 +35,12 @@ export const createUser = async (user) => {
 export const loginUser = async (user) => {
   try {
     const { data, status } = await api.post("/sessions", user);
-
     status === 200 &&
       toast.success("Logado com Sucesso!! Aguarde...", {
         style: {
           color: "var(--color-success)",
         },
       });
-
     return data;
   } catch (error) {
     const message = error.response.data.message;
@@ -65,18 +63,42 @@ export const loginUser = async (user) => {
   }
 };
 
-export const getUsers = async (token) => {
+export const getUsers = async () => {
   try {
-    const { data } = await api.get("/profile", {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    });
-
+    const { data } = await api.get("/profile");
     return data;
   } catch (error) {
     console.error(error);
-
     return null;
   }
+};
+
+export const createTech = async (tech) => {
+  try {
+    const { data, status } = await api.post("/users/techs", tech);
+    status === 201 &&
+      toast.success("Tecnologia adicionada com sucesso!", {
+        style: {
+          color: "var(--color-success)",
+        },
+      });
+
+    console.log(data);
+    return true;
+  } catch (error) {
+    const message = error.response.data.message;
+    message.indexOf("User Already have this") != -1 &&
+      toast.error("Tecnologia já está na sua lista!", {
+        style: {
+          color: "var(--color-negative)",
+        },
+      });
+    return false;
+  }
+};
+
+export const deleteTech = async (tech_id) => {
+  try {
+    const { data, status } = await api.delete(`/users/techs/${tech_id}`);
+  } catch (error) {}
 };

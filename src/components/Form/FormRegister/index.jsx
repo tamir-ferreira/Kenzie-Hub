@@ -9,6 +9,7 @@ import { registerSchema } from "./schemas";
 import { createUser } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
 import { AnimSlideDown, AnimSlideLeft, AnimSlideRight } from "../../Animation";
+import { options } from "./data";
 
 export const FormRegister = () => {
   const [anyError, setAnyError] = useState(true);
@@ -100,6 +101,8 @@ export const FormRegister = () => {
       </AnimSlideRight>
       <AnimSlideLeft delay={1}>
         <Select
+          options={options}
+          label={"Selecionar Módulo"}
           register={register("course_module")}
           error={errors.course_module?.message}
         />
