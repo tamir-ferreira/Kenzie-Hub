@@ -55,6 +55,7 @@ export const StyledModal = styled.div`
       }
     }
   }
+
   @media only screen and (max-width: 600px) {
     > div {
       padding: 0 12px;

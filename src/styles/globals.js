@@ -83,5 +83,5 @@ export const StyledGlobals = createGlobalStyle`
    
   ::-webkit-scrollbar-track { background-color: var(--color-gray-2) }
   ::-webkit-scrollbar { width: .4375rem; height: .4375rem;}
-  ::-webkit-scrollbar-thumb { background: var(--color-primary); border-radius: var(--border-radius-1)}
+  ::-webkit-scrollbar-thumb { background: var(--color-primary-disable); border-radius: var(--border-radius-1)}
 `;

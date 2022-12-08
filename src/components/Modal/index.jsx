@@ -4,7 +4,7 @@ import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../context/TechContext";
 import { UserContext } from "../../context/UserContext";
-import { AnimSlideDown } from "../Animation";
+import { AnimPump, AnimSlideDown, AnimSlideUp } from "../Animation";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Select } from "../Select";
@@ -37,7 +37,8 @@ export const Modal = () => {
 
   return (
     <StyledModal>
-      <div>
+      <AnimSlideUp>
+        {/* <div> */}
         <div>
           <h4 className="font-title-3">
             {modalAdd ? "Cadastrar Tecnologia" : "Editar Tecnologia"}
@@ -108,7 +109,8 @@ export const Modal = () => {
 
           {/* </AnimSlideDown> */}
         </form>
-      </div>
+        {/* </div> */}
+      </AnimSlideUp>
     </StyledModal>
   );
 };
