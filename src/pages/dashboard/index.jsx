@@ -9,11 +9,11 @@ import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 import { TechContext } from "../../context/TechContext";
+import { CardTech } from "../../components/CardTech";
 
 export const DashboardPage = () => {
   const { user, setUser, waitUser } = useContext(UserContext);
-  const { setTechSelected, modalOpen, setModalOpen, setModalAdd } =
-    useContext(TechContext);
+  const { modalOpen, setModalOpen, setModalAdd } = useContext(TechContext);
 
   if (waitUser) {
     return null;
@@ -53,19 +53,7 @@ export const DashboardPage = () => {
           </Button>
         </div>
         <ul>
-          {user.techs.map((tech) => (
-            <li
-              key={tech.id}
-              onClick={() => {
-                setTechSelected(tech);
-                setModalAdd(false);
-                setModalOpen(true);
-              }}
-            >
-              <h4 className="font-title-3">{tech.title}</h4>
-              <span className="font-headline-gray">{tech.status}</span>
-            </li>
-          ))}
+          <CardTech />
         </ul>
       </section>
 

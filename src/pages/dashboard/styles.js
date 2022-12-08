@@ -52,23 +52,6 @@ export const StyledDashboard = styled.main`
       border-radius: var(--border-radius-1);
       background-color: var(--color-gray-3);
       padding: 23px;
-
-      li {
-        padding: 15px 22px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        border-radius: var(--border-radius-1);
-        background-color: var(--color-gray-4);
-
-        :hover {
-          cursor: pointer;
-          background-color: var(--color-gray-2);
-          > span {
-            color: var(--color-gray-0);
-          }
-        }
-      }
     }
   }
 
