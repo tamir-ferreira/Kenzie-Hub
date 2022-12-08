@@ -38,7 +38,7 @@ export const UserProvider = ({ children }) => {
     return null;
   }
 
-  const login = async (data) => {
+  const loginSubmit = async (data) => {
     setLoading(true);
     const response = await loginUser(data);
     const { user: userResponse, token } = response;
@@ -83,7 +83,7 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        login,
+        loginSubmit,
         registerSubmit,
         loading,
         loading2,

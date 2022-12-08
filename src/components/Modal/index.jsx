@@ -73,7 +73,11 @@ export const Modal = () => {
               size="default"
               color={!loading ? "colored" : "disabled"}
               children={
-                !loading ? "Cadastrar Tecnologia" : <span class="loader"></span>
+                !loading ? (
+                  "Cadastrar Tecnologia"
+                ) : (
+                  <span className="loader"></span>
+                )
               }
             />
           ) : (
@@ -83,14 +87,20 @@ export const Modal = () => {
                 size="fixed_default"
                 color={!loading ? "colored" : "disabled"}
                 children={
-                  !loading ? "Salvar alterações" : <span class="loader"></span>
+                  !loading ? (
+                    "Salvar alterações"
+                  ) : (
+                    <span className="loader"></span>
+                  )
                 }
               />
               <Button
                 type="button"
                 size="fixed_little"
                 color={!loading2 ? "gray" : "disabled_gray"}
-                children={!loading2 ? "Excluir" : <span class="loader"></span>}
+                children={
+                  !loading2 ? "Excluir" : <span className="loader"></span>
+                }
                 onClick={() => deleteTechSubmit(id)}
               />
             </div>

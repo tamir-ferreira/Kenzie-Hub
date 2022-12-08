@@ -12,7 +12,7 @@ import { UserContext } from "../../../context/UserContext";
 
 export const FormLogin = () => {
   const [showPass, setShowPass] = useState(false);
-  const { login, loading } = useContext(UserContext);
+  const { loginSubmit, loading } = useContext(UserContext);
 
   const {
     register,
@@ -25,7 +25,7 @@ export const FormLogin = () => {
   });
 
   return (
-    <StyledForm onSubmit={handleSubmit(login)} noValidate>
+    <StyledForm onSubmit={handleSubmit(loginSubmit)} noValidate>
       <div>
         <h2 className="font-title-1">Login</h2>
       </div>
@@ -55,7 +55,7 @@ export const FormLogin = () => {
         type="submit"
         size="default"
         color={!loading ? "colored" : "disabled"}
-        children={!loading ? "Entrar" : <span class="loader"></span>}
+        children={!loading ? "Entrar" : <span className="loader"></span>}
       />
     </StyledForm>
   );
