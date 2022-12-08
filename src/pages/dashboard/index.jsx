@@ -11,10 +11,8 @@ import { Modal } from "../../components/Modal";
 import { TechContext } from "../../context/TechContext";
 
 export const DashboardPage = () => {
-  const [techSelected, setTecSelected] = useState("");
-  // let techSelected = "";
   const { user, setUser, waitUser } = useContext(UserContext);
-  const { modalOpen, setModalOpen, setModalAdd, deleteTechSubmit } =
+  const { setTechSelected, modalOpen, setModalOpen, setModalAdd } =
     useContext(TechContext);
 
   if (waitUser) {
@@ -59,25 +57,19 @@ export const DashboardPage = () => {
             <li
               key={tech.id}
               onClick={() => {
-                setTecSelected(tech);
+                setTechSelected(tech);
                 setModalAdd(false);
                 setModalOpen(true);
-                // editTechSubmit(tech.id);
               }}
             >
               <h4 className="font-title-3">{tech.title}</h4>
-              {/* <div> */}
               <span className="font-headline-gray">{tech.status}</span>
-              {/* <button onClick={() => deleteTechSubmit(tech.id)}>
-                  <FaTrashAlt size={13} />
-                </button> */}
-              {/* </div> */}
             </li>
           ))}
         </ul>
       </section>
 
-      {modalOpen && <Modal techSelected={techSelected} />}
+      {modalOpen && <Modal />}
     </StyledDashboard>
   ) : (
     <Navigate to="/" />

@@ -4,15 +4,15 @@ export const options = [
     name: "Selecione aqui seu nível",
   }, */
   {
-    value: "iniciante",
+    value: "Iniciante",
     name: "Iniciante",
   },
   {
-    value: "intermediario",
+    value: "Intermediário",
     name: "Intermediário",
   },
   {
-    value: "avancado",
+    value: "Avançado",
     name: "Avançado",
   },
 ];

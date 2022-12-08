@@ -1,12 +1,13 @@
 import { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { api, getUsers, loginUser } from "../services/api";
+import { api, createUser, getUsers, loginUser } from "../services/api";
 
 export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [loading2, setLoading2] = useState(false);
   const [waitUser, setWaitUser] = useState(true);
 
   const navigate = useNavigate();
@@ -57,11 +58,37 @@ export const UserProvider = ({ children }) => {
     }
   };
 
+  const registerSubmit = async (data) => {
+    setLoading(true);
+    const user = {
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      bio: data.bio,
+      contact: data.contact,
+      course_module: data.course_module,
+    };
+    const response = await createUser(user);
+
+    if (response) {
+      setTimeout(() => {
+        setLoading(false);
+        navigate(`/`);
+      }, 3000);
+    } else {
+      setLoading(false);
+    }
+  };
+
   return (
     <UserContext.Provider
       value={{
         login,
+        registerSubmit,
         loading,
+        loading2,
+        setLoading,
+        setLoading2,
         user,
         setUser,
         waitUser,

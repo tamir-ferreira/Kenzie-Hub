@@ -55,4 +55,15 @@ export const StyledModal = styled.div`
       }
     }
   }
+  @media only screen and (max-width: 600px) {
+    > div {
+      padding: 0 12px;
+      /* background-color: red; */
+      > form > div > button:first-child {
+        min-width: min-content;
+        width: 90%;
+        /* background-color: red; */
+      }
+    }
+  }
 `;

@@ -6,40 +6,49 @@ import { UserContext } from "./UserContext";
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
+  const [techSelected, setTechSelected] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalAdd, setModalAdd] = useState(true);
-  const { setUser } = useContext(UserContext);
+  const { setUser, setLoading, setLoading2 } = useContext(UserContext);
+
+  const closeModal = () => {
+    setTimeout(async () => {
+      const response = await getUsers();
+      setUser(response);
+      setModalOpen(false);
+      setLoading(false);
+      setLoading2(false);
+    }, 500);
+  };
 
   const createTechSubmit = async (data) => {
+    setLoading(true);
     const response = await createTech(data);
-
-    response &&
-      setTimeout(async () => {
-        const response = await getUsers();
-        setUser(response);
-        setModalOpen(false);
-      }, 500);
+    response && closeModal();
   };
 
-  const deleteTechSubmit = async (tech_id) => {
-    const response = await deleteTech(tech_id);
-    response &&
-      setTimeout(async () => {
-        const response = await getUsers();
-        setUser(response);
-        setModalOpen(false);
-      }, 500);
+  const deleteTechSubmit = async (data) => {
+    setLoading2(true);
+    const response = await deleteTech(data);
+    response && closeModal();
   };
 
-  const updateTechSubmit = async (tech_id) => {
-    console.log(tech_id);
+  const updateTechSubmit = async (data) => {
+    setLoading(true);
+    const tech_id = techSelected.id;
+    const body = {
+      status: data.status,
+    };
 
-    const response = await updateTech(tech_id);
+    const response = await updateTech(tech_id, body);
+    response && closeModal();
   };
 
   return (
     <TechContext.Provider
       value={{
+        techSelected,
+        setTechSelected,
         createTechSubmit,
         deleteTechSubmit,
         updateTechSubmit,

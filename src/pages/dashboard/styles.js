@@ -68,36 +68,28 @@ export const StyledDashboard = styled.main`
             color: var(--color-gray-0);
           }
         }
-        /* div {
-          display: flex;
-          align-items: center;
-          gap: 22px;
-
-          span:last-child:hover {
-            cursor: pointer;
-            color: var(--color-negative);
-          }
-        } */
-
-        /* :hover {
-          background-color: var(--color-gray-2);
-          div > span {
-            color: var(--color-gray-0);
-          }
-        } */
       }
     }
   }
 
   @media only screen and (max-width: 600px) {
-    /* padding: 0 12px; */
     header {
-      /* background-color: red; */
       padding: 0 12px;
     }
 
     section {
       padding: 0 12px;
+    }
+
+    section:nth-child(2) > div {
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      align-items: flex-start;
+    }
+
+    section:nth-child(3) > ul {
+      padding: 23px 8.5px;
     }
   }
 `;

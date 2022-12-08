@@ -4,6 +4,7 @@ export const Input = ({
   label,
   type,
   value,
+  disabled,
   placeholder,
   children,
   register,
@@ -19,6 +20,7 @@ export const Input = ({
         id={register.name}
         type={type}
         value={value}
+        disabled={disabled}
         placeholder={placeholder}
         className={error && "error"}
         {...register}

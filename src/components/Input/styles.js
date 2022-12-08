@@ -24,6 +24,10 @@ export const StyledInput = styled.fieldset`
     :focus {
       border-color: var(--color-gray-0);
     }
+
+    :disabled {
+      color: var(--color-gray-1);
+    }
   }
 
   > svg {

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Button } from "../../Button";
 import { Input } from "../../Input";
 import { Select } from "../../Select";
@@ -9,9 +9,11 @@ import { registerSchema } from "./schemas";
 import { createUser } from "../../../services/api";
 import { useNavigate } from "react-router-dom";
 import { AnimSlideDown, AnimSlideLeft, AnimSlideRight } from "../../Animation";
+import { UserContext } from "../../../context/UserContext";
 import { options } from "./data";
 
 export const FormRegister = () => {
+  const { loading, registerSubmit } = useContext(UserContext);
   const [anyError, setAnyError] = useState(true);
   const navigate = useNavigate();
 
@@ -24,7 +26,7 @@ export const FormRegister = () => {
     resolver: yupResolver(registerSchema),
   });
 
-  const submitForm = async (data) => {
+  /* const submitForm = async (data) => {
     const user = {
       name: data.name,
       email: data.email,
@@ -37,10 +39,10 @@ export const FormRegister = () => {
       setTimeout(() => {
         navigate(`/`);
       }, 3500);
-  };
+  }; */
 
   return (
-    <StyledForm onSubmit={handleSubmit(submitForm)} noValidate>
+    <StyledForm onSubmit={handleSubmit(registerSubmit)} noValidate>
       <div>
         <h2 className="font-title-1">Crie sua conta</h2>
         <p className="font-headline-gray">Rápido e grátis, vamos nessa</p>
@@ -111,8 +113,10 @@ export const FormRegister = () => {
         <Button
           type="submit"
           size="default"
-          color="colored"
-          children="Cadastrar"
+          // color="colored"
+          color={!loading ? "colored" : "disabled"}
+          children={!loading ? "Cadastrar" : <span className="loader"></span>}
+          // children="Cadastrar"
         />
       </AnimSlideDown>
     </StyledForm>

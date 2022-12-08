@@ -2,9 +2,24 @@ import styled, { css } from "styled-components";
 
 const buttonVariants = {
   default: css`
+    width: 100%;
     height: 48px;
     padding: 0 22px;
     font-size: var(--font-size-2);
+  `,
+
+  fixed_default: css`
+    height: 48px;
+    padding: 0 22px;
+    font-size: var(--font-size-2);
+    min-width: 208px;
+  `,
+
+  fixed_little: css`
+    height: 48px;
+    padding: 0 22px;
+    font-size: var(--font-size-2);
+    width: 155px;
   `,
 
   small: css`
@@ -52,6 +67,12 @@ const buttonVariants = {
   disabled: css`
     background-color: var(--color-primary-disable);
     border: 0.125rem solid var(--color-primary-disable);
+    pointer-events: none;
+  `,
+
+  disabled_gray: css`
+    background-color: var(--color-gray-2);
+    border: 0.125rem solid var(--color-gray-2);
     pointer-events: none;
   `,
 

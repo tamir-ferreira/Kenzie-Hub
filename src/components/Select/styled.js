@@ -25,11 +25,17 @@ export const StyledSelect = styled.fieldset`
       color: var(--color-gray-0);
     }
 
-    option[value=""] {
-      background-color: red;
+    :hover {
+      cursor: pointer;
     }
   }
   p {
     color: var(--color-negative);
+  }
+
+  @media only screen and (max-width: 400px) {
+    > select {
+      font-size: var(--font-size-4);
+    }
   }
 `;

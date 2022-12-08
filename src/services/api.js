@@ -35,6 +35,7 @@ export const createUser = async (user) => {
 export const loginUser = async (user) => {
   try {
     const { data, status } = await api.post("/sessions", user);
+
     status === 200 &&
       toast.success("Logado com Sucesso!! Aguarde...", {
         style: {
@@ -75,18 +76,18 @@ export const getUsers = async () => {
 
 export const createTech = async (tech) => {
   try {
-    const { data, status } = await api.post("/users/techs", tech);
+    const { status } = await api.post("/users/techs", tech);
+
     status === 201 &&
       toast.success("Tecnologia adicionada com sucesso!", {
         style: {
           color: "var(--color-success)",
         },
       });
-
-    // console.log(data);
     return true;
   } catch (error) {
     const message = error.response.data.message;
+
     message.indexOf("User Already have this") != -1 &&
       toast.error("Tecnologia já está na sua lista!", {
         style: {
@@ -100,14 +101,13 @@ export const createTech = async (tech) => {
 export const deleteTech = async (tech_id) => {
   try {
     const { status } = await api.delete(`/users/techs/${tech_id}`);
+
     status === 204 &&
       toast.success("Tecnologia removida com sucesso!", {
         style: {
           color: "var(--color-success)",
         },
       });
-
-    // console.log(data);
     return true;
   } catch (error) {
     console.error(error);
@@ -115,18 +115,16 @@ export const deleteTech = async (tech_id) => {
   }
 };
 
-export const updateTech = async (tech_id) => {
+export const updateTech = async (tech_id, body) => {
   try {
-    const { status } = await api.put(`/users/techs/${tech_id}`);
-    console.log(status);
-    /* status === 204 &&
-      toast.success("Tecnologia removida com sucesso!", {
+    const { status } = await api.put(`/users/techs/${tech_id}`, body);
+
+    status === 201 &&
+      toast.success("Nível atualizado com sucesso!", {
         style: {
           color: "var(--color-success)",
         },
-      }); */
-
-    // console.log(data);
+      });
     return true;
   } catch (error) {
     console.error(error);

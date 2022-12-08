@@ -55,7 +55,7 @@ export const FormLogin = () => {
         type="submit"
         size="default"
         color={!loading ? "colored" : "disabled"}
-        children={!loading ? "Entrar" : "aguarde um momento..."}
+        children={!loading ? "Entrar" : <span class="loader"></span>}
       />
     </StyledForm>
   );
