@@ -47,7 +47,7 @@ export const AnimSlideDown = ({ children, delay }) => (
   <motion.div
     initial={{ translateY: "-150vh" }}
     animate={{ translateY: 0 }}
-    transition={{ duration: 2, delay: delay, ease: "easeInOut" }}
+    transition={{ duration: 1.2, delay: delay, ease: "easeInOut" }}
   >
     {children}
   </motion.div>
