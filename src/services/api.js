@@ -83,7 +83,7 @@ export const createTech = async (tech) => {
         },
       });
 
-    console.log(data);
+    // console.log(data);
     return true;
   } catch (error) {
     const message = error.response.data.message;
@@ -99,6 +99,37 @@ export const createTech = async (tech) => {
 
 export const deleteTech = async (tech_id) => {
   try {
-    const { data, status } = await api.delete(`/users/techs/${tech_id}`);
-  } catch (error) {}
+    const { status } = await api.delete(`/users/techs/${tech_id}`);
+    status === 204 &&
+      toast.success("Tecnologia removida com sucesso!", {
+        style: {
+          color: "var(--color-success)",
+        },
+      });
+
+    // console.log(data);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
+};
+
+export const updateTech = async (tech_id) => {
+  try {
+    const { status } = await api.put(`/users/techs/${tech_id}`);
+    console.log(status);
+    /* status === 204 &&
+      toast.success("Tecnologia removida com sucesso!", {
+        style: {
+          color: "var(--color-success)",
+        },
+      }); */
+
+    // console.log(data);
+    return true;
+  } catch (error) {
+    console.error(error);
+    return false;
+  }
 };

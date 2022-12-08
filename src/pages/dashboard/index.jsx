@@ -1,4 +1,3 @@
-// import construction2 from "../../images/construction2.png";
 import { FaPlus } from "react-icons/fa";
 import { FaTrashAlt } from "react-icons/fa";
 import { Button } from "../../components/Button";
@@ -12,9 +11,11 @@ import { Modal } from "../../components/Modal";
 import { TechContext } from "../../context/TechContext";
 
 export const DashboardPage = () => {
+  const [techSelected, setTecSelected] = useState("");
+  // let techSelected = "";
   const { user, setUser, waitUser } = useContext(UserContext);
-  const { modalOpen, setModalOpen } = useContext(TechContext);
-  // const [modalOpen, setModalOpen] = useState(false);
+  const { modalOpen, setModalOpen, setModalAdd, deleteTechSubmit } =
+    useContext(TechContext);
 
   if (waitUser) {
     return null;
@@ -45,26 +46,38 @@ export const DashboardPage = () => {
           <Button
             size="plus"
             color="dark_gray"
-            onClick={() => setModalOpen(true)}
+            onClick={() => {
+              setModalAdd(true);
+              setModalOpen(true);
+            }}
           >
             <FaPlus size={13} />
           </Button>
         </div>
         <ul>
           {user.techs.map((tech) => (
-            <li key={tech.id}>
+            <li
+              key={tech.id}
+              onClick={() => {
+                setTecSelected(tech);
+                setModalAdd(false);
+                setModalOpen(true);
+                // editTechSubmit(tech.id);
+              }}
+            >
               <h4 className="font-title-3">{tech.title}</h4>
-              <div>
-                <span className="font-headline-gray">{tech.status}</span>
-                <span>
+              {/* <div> */}
+              <span className="font-headline-gray">{tech.status}</span>
+              {/* <button onClick={() => deleteTechSubmit(tech.id)}>
                   <FaTrashAlt size={13} />
-                </span>
-              </div>
+                </button> */}
+              {/* </div> */}
             </li>
           ))}
         </ul>
       </section>
-      {modalOpen && <Modal />}
+
+      {modalOpen && <Modal techSelected={techSelected} />}
     </StyledDashboard>
   ) : (
     <Navigate to="/" />

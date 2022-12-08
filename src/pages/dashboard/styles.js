@@ -54,14 +54,21 @@ export const StyledDashboard = styled.main`
       padding: 23px;
 
       li {
-        padding: 13px 22px;
+        padding: 15px 22px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         border-radius: var(--border-radius-1);
         background-color: var(--color-gray-4);
 
-        div {
+        :hover {
+          cursor: pointer;
+          background-color: var(--color-gray-2);
+          > span {
+            color: var(--color-gray-0);
+          }
+        }
+        /* div {
           display: flex;
           align-items: center;
           gap: 22px;
@@ -70,79 +77,27 @@ export const StyledDashboard = styled.main`
             cursor: pointer;
             color: var(--color-negative);
           }
-        }
+        } */
 
-        :hover {
+        /* :hover {
           background-color: var(--color-gray-2);
           div > span {
             color: var(--color-gray-0);
           }
-        }
+        } */
       }
     }
-
-    /*     div:nth-child(3) {
-      background-color: red;
-      margin-top: 50px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    } */
-
-    /* img {
-      cursor: help;
-      width: 400px;
-      border-radius: 50%;
-      z-index: 10;
-      box-shadow: 0 0 15px var(--color-gray-2);
-    } */
-
-    /*  @keyframes heartbeat {
-      from {
-        transform: scale(1);
-        transform-origin: center center;
-        animation-timing-function: ease-out;
-      }
-      10% {
-        transform: scale(0.91);
-        animation-timing-function: ease-in;
-      }
-      17% {
-        transform: scale(0.98);
-        animation-timing-function: ease-out;
-      }
-      33% {
-        transform: scale(0.87);
-        animation-timing-function: ease-in;
-      }
-      45% {
-        transform: scale(1);
-        animation-timing-function: ease-out;
-      }
-    } */
   }
 
-  /*  @keyframes flip {
-    0% {
-      transform: translateY(0) rotateX(0);
-      transform-origin: 50% 100%;
-    }
-    100% {
-      transform: translateY(100%) rotateX(180deg);
-      transform-origin: 50% 0;
-    }
-  } */
-
   @media only screen and (max-width: 600px) {
-    padding: 0 12px;
+    /* padding: 0 12px; */
+    header {
+      /* background-color: red; */
+      padding: 0 12px;
+    }
 
-    section:nth-child(3) {
-      width: 100%;
-
-      /*  img {
-        width: 95%;
-        object-fit: fill;
-      } */
+    section {
+      padding: 0 12px;
     }
   }
 `;

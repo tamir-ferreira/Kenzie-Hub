@@ -48,6 +48,11 @@ export const StyledModal = styled.div`
       display: flex;
       flex-direction: column;
       gap: 20px;
+
+      > div {
+        display: flex;
+        gap: 20px;
+      }
     }
   }
 `;

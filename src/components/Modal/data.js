@@ -1,8 +1,8 @@
 export const options = [
-  {
+  /* {
     value: "",
     name: "Selecione aqui seu nível",
-  },
+  }, */
   {
     value: "iniciante",
     name: "Iniciante",

@@ -3,6 +3,7 @@ import { StyledInput } from "./styles";
 export const Input = ({
   label,
   type,
+  value,
   placeholder,
   children,
   register,
@@ -17,6 +18,7 @@ export const Input = ({
       <input
         id={register.name}
         type={type}
+        value={value}
         placeholder={placeholder}
         className={error && "error"}
         {...register}

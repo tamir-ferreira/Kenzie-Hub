@@ -1,8 +1,8 @@
 export const options = [
-  {
+  /* {
     value: "",
     name: "Selecione aqui o Módulo",
-  },
+  }, */
   {
     value: "M1",
     name: "Módulo 1 - FrontEnd Básico",

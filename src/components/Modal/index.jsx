@@ -1,8 +1,8 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../context/TechContext";
-import { createTech } from "../../services/api";
 import { AnimSlideDown } from "../Animation";
 import { Button } from "../Button";
 import { Input } from "../Input";
@@ -11,16 +11,24 @@ import { options } from "./data";
 import { modalSchema } from "./schemas";
 import { StyledModal } from "./styles";
 
-export const Modal = () => {
-  const { createTechSubmit, setModalOpen } = useContext(TechContext);
+export const Modal = ({ techSelected }) => {
+  const { id, title, status } = techSelected;
+  const {
+    createTechSubmit,
+    deleteTechSubmit,
+    editTechSubmit,
+    setModalOpen,
+    modalAdd,
+  } = useContext(TechContext);
 
+  // console.log(techSelected);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
   } = useForm({
-    mode: "onChange",
+    // mode: "onChange",
     resolver: yupResolver(modalSchema),
   });
 
@@ -28,30 +36,56 @@ export const Modal = () => {
     <StyledModal>
       <div>
         <div>
-          <h4 className="font-title-3">Cadastrar Tecnologia</h4>
+          <h4 className="font-title-3">
+            {modalAdd ? "Cadastrar Tecnologia" : "Editar Tecnologia"}
+          </h4>
           <Button onClick={() => setModalOpen(false)}>X</Button>
         </div>
-        <form onSubmit={handleSubmit(createTechSubmit)} noValidate>
+        <form
+          onSubmit={handleSubmit(modalAdd ? createTechSubmit : editTechSubmit)}
+          noValidate
+        >
           <Input
-            label="Nome"
+            label={modalAdd ? "Nome" : "Nome cadastrado"}
             type="text"
+            value={modalAdd ? undefined : title}
             placeholder="Digite aqui a tecnologia"
             register={register("title")}
             error={errors.title?.message}
           />
           <Select
+            defaultValue={modalAdd ? "" : status}
             options={options}
             register={register("status")}
-            label={"Selecionar Nível"}
+            label={modalAdd ? "Selecionar Nível" : "Nível cadastrado"}
             error={errors.status?.message}
           />
           {/* <AnimSlideDown delay={1.5}> */}
-          <Button
-            type="submit"
-            size="default"
-            color="colored"
-            children="Cadastrar Tecnologia"
-          />
+          {modalAdd ? (
+            <Button
+              type="submit"
+              size="default"
+              color="colored"
+              children="Cadastrar Tecnologia"
+            />
+          ) : (
+            <div>
+              <Button
+                type="submit"
+                size="default"
+                color="colored"
+                children="Salvar alterações"
+              />
+              <Button
+                type="button"
+                size="default"
+                color="gray"
+                children="Excluir"
+                onClick={() => deleteTechSubmit(id)}
+              />
+            </div>
+          )}
+
           {/* </AnimSlideDown> */}
         </form>
       </div>
