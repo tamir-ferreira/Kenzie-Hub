@@ -59,6 +59,7 @@ export const UserProvider = ({ children }) => {
   };
 
   const registerSubmit = async (data) => {
+    // console.log(data);
     setLoading(true);
     const user = {
       name: data.name,

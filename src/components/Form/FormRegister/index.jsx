@@ -14,8 +14,8 @@ import { options } from "./data";
 
 export const FormRegister = () => {
   const { loading, registerSubmit } = useContext(UserContext);
-  const [anyError, setAnyError] = useState(true);
-  const navigate = useNavigate();
+  // const [anyError, setAnyError] = useState(true);
+  // const navigate = useNavigate();
 
   const {
     register,
@@ -25,21 +25,6 @@ export const FormRegister = () => {
     mode: "onChange",
     resolver: yupResolver(registerSchema),
   });
-
-  /* const submitForm = async (data) => {
-    const user = {
-      name: data.name,
-      email: data.email,
-      password: data.password,
-      bio: data.bio,
-      contact: data.contact,
-      course_module: data.course_module,
-    };
-    (await createUser(user)) &&
-      setTimeout(() => {
-        navigate(`/`);
-      }, 3500);
-  }; */
 
   return (
     <StyledForm onSubmit={handleSubmit(registerSubmit)} noValidate>

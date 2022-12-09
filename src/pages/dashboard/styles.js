@@ -38,6 +38,7 @@ export const StyledDashboard = styled.main`
     flex-direction: column;
     justify-content: center;
     gap: 21px;
+    text-align: center;
 
     div:nth-child(1) {
       display: flex;
@@ -52,6 +53,29 @@ export const StyledDashboard = styled.main`
       border-radius: var(--border-radius-1);
       background-color: var(--color-gray-3);
       padding: 23px;
+    }
+
+    > div:last-child {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 20px;
+
+      > img {
+        padding-top: 50px;
+        max-width: 200px;
+        animation: float 3s ease-in-out infinite;
+      }
+    }
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: scale(0.95);
+    }
+    50% {
+      transform: scale(1);
     }
   }
 

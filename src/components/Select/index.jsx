@@ -22,8 +22,8 @@ export const Select = ({
           Selecione aqui seu nível
         </option>
         {options.map((item, index) => (
-          <option key={index} value={item.value}>
-            {item.name}
+          <option key={index} value={item}>
+            {item}
           </option>
         ))}
       </select>

@@ -23,14 +23,17 @@ export const TechProvider = ({ children }) => {
 
   const createTechSubmit = async (data) => {
     setLoading(true);
+    data.title =
+      data.title[0].toUpperCase() + data.title.slice(1).toLowerCase();
+
     const response = await createTech(data);
-    response && closeModal();
+    response ? closeModal() : setLoading(false);
   };
 
   const deleteTechSubmit = async (data) => {
     setLoading2(true);
     const response = await deleteTech(data);
-    response && closeModal();
+    response ? closeModal() : setLoading2(false);
   };
 
   const updateTechSubmit = async (data) => {
@@ -41,7 +44,7 @@ export const TechProvider = ({ children }) => {
     };
 
     const response = await updateTech(tech_id, body);
-    response && closeModal();
+    response ? closeModal() : setLoading(false);
   };
 
   return (

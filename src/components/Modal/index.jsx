@@ -1,18 +1,17 @@
 import { yupResolver } from "@hookform/resolvers/yup";
-import { useState } from "react";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../context/TechContext";
 import { UserContext } from "../../context/UserContext";
-import { AnimPump, AnimSlideDown, AnimSlideUp } from "../Animation";
+import { AnimSlideUp } from "../Animation";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Select } from "../Select";
-import { options } from "./data";
 import { modalSchemaCreate, modalSchemaUpdate } from "./schemas";
 import { StyledModal } from "./styles";
 
 export const Modal = () => {
+  const options = ["Iniciante", "Intermediário", "Avançado"];
   const { loading, loading2 } = useContext(UserContext);
   const {
     techSelected,
@@ -24,7 +23,6 @@ export const Modal = () => {
   } = useContext(TechContext);
   const { id, title, status } = techSelected;
 
-  // console.log(techSelected);
   const {
     register,
     handleSubmit,

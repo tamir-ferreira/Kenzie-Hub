@@ -1,5 +1,5 @@
 import { FaPlus } from "react-icons/fa";
-import { FaTrashAlt } from "react-icons/fa";
+import empty from "../../images/empty.png";
 import { Button } from "../../components/Button";
 import { StyledDashboard } from "./styles";
 // import { AnimBlur } from "../../components/Animation";
@@ -54,9 +54,16 @@ export const DashboardPage = () => {
               <FaPlus size={13} />
             </Button>
           </div>
-          <ul>
-            <CardTech />
-          </ul>
+          {user.techs.length > 0 ? (
+            <ul>
+              <CardTech />
+            </ul>
+          ) : (
+            <div>
+              <img src={empty} alt="animação lista vazia" />
+              <h5>Você não possui tecnologias cadastradas até o momento.</h5>
+            </div>
+          )}
         </section>
 
         {modalOpen && <Modal />}

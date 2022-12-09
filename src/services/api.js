@@ -69,7 +69,11 @@ export const getUsers = async () => {
     const { data } = await api.get("/profile");
     return data;
   } catch (error) {
-    console.error(error);
+    toast.error("Erro ao buscar dados no servidor!", {
+      style: {
+        color: "var(--color-negative)",
+      },
+    });
     return null;
   }
 };
@@ -110,7 +114,11 @@ export const deleteTech = async (tech_id) => {
       });
     return true;
   } catch (error) {
-    console.error(error);
+    toast.error("Erro ao buscar dados no servidor!", {
+      style: {
+        color: "var(--color-negative)",
+      },
+    });
     return false;
   }
 };
@@ -127,7 +135,11 @@ export const updateTech = async (tech_id, body) => {
       });
     return true;
   } catch (error) {
-    console.error(error);
+    toast.error("Erro ao buscar dados no servidor!", {
+      style: {
+        color: "var(--color-negative)",
+      },
+    });
     return false;
   }
 };
