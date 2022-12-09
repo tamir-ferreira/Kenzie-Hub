@@ -8,7 +8,14 @@ import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 
 export const LoginPage = () => {
-  const { setShowPass } = useContext(UserContext);
+  const { setShowPass, waitUser } = useContext(UserContext);
+  if (waitUser) {
+    return (
+      <div className="container-loader2">
+        <span className="loader2"></span>
+      </div>
+    );
+  }
   return (
     <StyledLogin>
       <div>

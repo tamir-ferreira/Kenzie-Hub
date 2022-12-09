@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import { Button } from "../../Button";
 import { Input } from "../../Input";
 import { Select } from "../../Select";
@@ -6,18 +6,14 @@ import { StyledForm } from "../styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { registerSchema } from "./schemas";
-import { createUser } from "../../../services/api";
-import { useNavigate } from "react-router-dom";
-import { AnimSlideDown, AnimSlideLeft, AnimSlideRight } from "../../Animation";
+import { options } from "./dataSelect";
 import { UserContext } from "../../../context/UserContext";
-import { options } from "./data";
 import { BsEyeSlash, BsFillEyeFill } from "react-icons/bs";
+import { AnimSlideDown, AnimSlideLeft, AnimSlideRight } from "../../Animation";
 
 export const FormRegister = () => {
   const { loading, registerSubmit, showPass, setShowPass } =
     useContext(UserContext);
-  // const [anyError, setAnyError] = useState(true);
-  // const navigate = useNavigate();
 
   const {
     register,
@@ -75,13 +71,6 @@ export const FormRegister = () => {
           placeholder="Digite a senha novamente"
           register={register("passwordConfirm")}
           error={errors.passwordConfirm?.message}
-          /* children={
-            showPass ? (
-              <BsEyeSlash onClick={() => setShowPass(!showPass)} />
-            ) : (
-              <BsFillEyeFill onClick={() => setShowPass(!showPass)} />
-            )
-          } */
         />
       </AnimSlideRight>
       <AnimSlideLeft delay={0.8}>
@@ -114,10 +103,8 @@ export const FormRegister = () => {
         <Button
           type="submit"
           size="default"
-          // color="colored"
           color={!loading ? "colored" : "disabled"}
           children={!loading ? "Cadastrar" : <span className="loader"></span>}
-          // children="Cadastrar"
         />
       </AnimSlideDown>
     </StyledForm>

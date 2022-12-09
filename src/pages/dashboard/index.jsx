@@ -1,25 +1,19 @@
-import { FaPlus } from "react-icons/fa";
 import empty from "../../images/empty.png";
+import { FaPlus } from "react-icons/fa";
 import { Button } from "../../components/Button";
 import { StyledDashboard } from "./styles";
-// import { AnimBlur } from "../../components/Animation";
 import { Header } from "../../components/Header";
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { UserContext } from "../../context/UserContext";
 import { Navigate } from "react-router-dom";
 import { Modal } from "../../components/Modal";
 import { TechContext } from "../../context/TechContext";
 import { CardTech } from "../../components/CardTech";
-import { AnimBlur, AnimPump } from "../../components/Animation";
+import { AnimBlur } from "../../components/Animation";
 
 export const DashboardPage = () => {
-  const { user, setUser, waitUser, setShowPass, globalLoading } =
-    useContext(UserContext);
+  const { user, setUser, setShowPass } = useContext(UserContext);
   const { modalOpen, setModalOpen, setModalAdd } = useContext(TechContext);
-
-  if (waitUser) {
-    return <h1>loading</h1>;
-  }
 
   const handleLogout = () => {
     setUser(null);
