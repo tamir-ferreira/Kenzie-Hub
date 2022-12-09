@@ -6,13 +6,17 @@ export const UserContext = createContext({});
 
 export const UserProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  // const [globalLoading, setGlobalLoading] = useState(false);
   const [loading, setLoading] = useState(false);
   const [loading2, setLoading2] = useState(false);
   const [waitUser, setWaitUser] = useState(true);
-
+  const [showPass, setShowPass] = useState(false);
   const navigate = useNavigate();
+  console.log("aqui");
 
   useEffect(() => {
+    // setGlobalLoading(true);
+    console.log("loading");
     const loadUser = async () => {
       const token = localStorage.getItem("@TOKEN");
       api.defaults.headers.common.authorization = `Bearer ${token}`;
@@ -21,11 +25,13 @@ export const UserProvider = ({ children }) => {
         setWaitUser(false);
         return;
       }
-
       const response = await getUsers(token);
+      // setGlobalLoading(false);
       if (response !== null) {
         setUser(response);
+        // setGlobalLoading(false);
         navigate("/dashboard");
+        // setGlobalLoading(false);
       } else localStorage.clear();
 
       setWaitUser(false);
@@ -34,9 +40,9 @@ export const UserProvider = ({ children }) => {
     loadUser();
   }, []);
 
-  if (waitUser) {
+  /* if (waitUser) {
     return null;
-  }
+  } */
 
   const loginSubmit = async (data) => {
     setLoading(true);
@@ -93,8 +99,12 @@ export const UserProvider = ({ children }) => {
         user,
         setUser,
         waitUser,
+        // globalLoading,
+        showPass,
+        setShowPass,
       }}
     >
+      {/* {globalLoading ? <h1>TESTE</h1> : children} */}
       {children}
     </UserContext.Provider>
   );

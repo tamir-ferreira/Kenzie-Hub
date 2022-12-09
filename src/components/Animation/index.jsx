@@ -4,7 +4,7 @@ export const AnimBlur = ({ children }) => (
   <motion.div
     initial={{ opacity: 0 }}
     animate={{ opacity: 1 }}
-    transition={{ duration: 3 }}
+    transition={{ duration: 2 }}
   >
     {children}
   </motion.div>

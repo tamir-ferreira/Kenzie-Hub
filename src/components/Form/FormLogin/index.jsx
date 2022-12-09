@@ -11,8 +11,8 @@ import { useContext } from "react";
 import { UserContext } from "../../../context/UserContext";
 
 export const FormLogin = () => {
-  const [showPass, setShowPass] = useState(false);
-  const { loginSubmit, loading } = useContext(UserContext);
+  const { loginSubmit, loading, showPass, setShowPass } =
+    useContext(UserContext);
 
   const {
     register,

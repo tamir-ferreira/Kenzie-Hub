@@ -1,20 +1,16 @@
 import { AnimatePresence } from "framer-motion";
-import { useState } from "react";
 import { BrowserRouter } from "react-router-dom";
-import { TechProvider } from "./context/TechContext";
-import { UserProvider } from "./context/UserContext";
+import { Providers } from "./context/Providers";
 import { PageRoutes } from "./routes";
 
 export const App = () => {
   return (
     <BrowserRouter>
-      <AnimatePresence>
-        <UserProvider>
-          <TechProvider>
-            <PageRoutes />
-          </TechProvider>
-        </UserProvider>
-      </AnimatePresence>
+      {/* <AnimatePresence> */}
+      <Providers>
+        <PageRoutes />
+      </Providers>
+      {/* </AnimatePresence> */}
     </BrowserRouter>
   );
 };

@@ -11,9 +11,11 @@ import { useNavigate } from "react-router-dom";
 import { AnimSlideDown, AnimSlideLeft, AnimSlideRight } from "../../Animation";
 import { UserContext } from "../../../context/UserContext";
 import { options } from "./data";
+import { BsEyeSlash, BsFillEyeFill } from "react-icons/bs";
 
 export const FormRegister = () => {
-  const { loading, registerSubmit } = useContext(UserContext);
+  const { loading, registerSubmit, showPass, setShowPass } =
+    useContext(UserContext);
   // const [anyError, setAnyError] = useState(true);
   // const navigate = useNavigate();
 
@@ -53,19 +55,33 @@ export const FormRegister = () => {
       <AnimSlideLeft delay={0.6}>
         <Input
           label="Senha"
-          type="password"
+          type={showPass ? "text" : "password"}
           placeholder="Crie aqui sua senha"
           register={register("password")}
           error={errors.password?.message}
+          children={
+            showPass ? (
+              <BsEyeSlash onClick={() => setShowPass(!showPass)} />
+            ) : (
+              <BsFillEyeFill onClick={() => setShowPass(!showPass)} />
+            )
+          }
         />
       </AnimSlideLeft>
       <AnimSlideRight delay={0.7}>
         <Input
           label="Confirmar Senha"
-          type="password"
+          type={showPass ? "text" : "password"}
           placeholder="Digite a senha novamente"
           register={register("passwordConfirm")}
           error={errors.passwordConfirm?.message}
+          /* children={
+            showPass ? (
+              <BsEyeSlash onClick={() => setShowPass(!showPass)} />
+            ) : (
+              <BsFillEyeFill onClick={() => setShowPass(!showPass)} />
+            )
+          } */
         />
       </AnimSlideRight>
       <AnimSlideLeft delay={0.8}>

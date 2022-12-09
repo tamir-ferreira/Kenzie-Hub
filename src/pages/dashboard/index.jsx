@@ -13,17 +13,19 @@ import { CardTech } from "../../components/CardTech";
 import { AnimBlur, AnimPump } from "../../components/Animation";
 
 export const DashboardPage = () => {
-  const { user, setUser, waitUser } = useContext(UserContext);
+  const { user, setUser, waitUser, setShowPass, globalLoading } =
+    useContext(UserContext);
   const { modalOpen, setModalOpen, setModalAdd } = useContext(TechContext);
 
   if (waitUser) {
-    return null;
+    return <h1>loading</h1>;
   }
 
   const handleLogout = () => {
     setUser(null);
     localStorage.removeItem("@TOKEN");
     localStorage.removeItem("@USERID");
+    setShowPass(false);
   };
 
   return user ? (
