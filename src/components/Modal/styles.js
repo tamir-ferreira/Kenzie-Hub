@@ -30,7 +30,6 @@ export const StyledModal = styled.div`
       }
 
       > button {
-        /* width: 20px; */
         font-size: 16px;
         color: var(--color-gray-1);
         :hover {
@@ -58,11 +57,10 @@ export const StyledModal = styled.div`
   @media only screen and (max-width: 600px) {
     > div {
       padding: 0 12px;
-      /* background-color: red; */
+
       > form > div > button:first-child {
         min-width: min-content;
         width: 90%;
-        /* background-color: red; */
       }
     }
   }

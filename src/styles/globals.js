@@ -32,18 +32,8 @@ export const StyledGlobals = createGlobalStyle`
     margin: 0 auto;
   }
 
-  .beat{
-    animation: flip 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
-  }
 
-  input.error,
-  select.error,
-  input.error:focus,
-  select.error:focus{
-    border-color: red;
-  }
-
-  /* ----------------------------------------- */
+  /* -------- LOADER BOTÕES -------- */
   .loader {
   font-size: 4px;
   width: 1em;
@@ -82,7 +72,8 @@ export const StyledGlobals = createGlobalStyle`
   }
 }
 
-/* ----------------------------------- */
+
+/* ---------- LOADER PÁGINAS ------------ */
 .container-loader2{
   height: 100vh;
   display: flex;

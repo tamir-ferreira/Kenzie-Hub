@@ -75,12 +75,6 @@ const buttonVariants = {
     border: 0.125rem solid var(--color-gray-2);
     pointer-events: none;
   `,
-
-  image: css`
-    :focus {
-      animation: heartbeat 1.5s ease-in-out 1s infinite both;
-    }
-  `,
 };
 
 export const StyledButton = styled.button`

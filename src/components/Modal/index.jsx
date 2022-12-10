@@ -1,4 +1,5 @@
 import { yupResolver } from "@hookform/resolvers/yup";
+import { modalSchemaCreate, modalSchemaUpdate } from "./schemas";
 import { useContext } from "react";
 import { useForm } from "react-hook-form";
 import { TechContext } from "../../context/TechContext";
@@ -7,7 +8,6 @@ import { AnimSlideUp } from "../Animation";
 import { Button } from "../Button";
 import { Input } from "../Input";
 import { Select } from "../Select";
-import { modalSchemaCreate, modalSchemaUpdate } from "./schemas";
 import { StyledModal } from "./styles";
 
 export const Modal = () => {
@@ -36,7 +36,6 @@ export const Modal = () => {
   return (
     <StyledModal>
       <AnimSlideUp>
-        {/* <div> */}
         <div>
           <h4 className="font-title-3">
             {modalAdd ? "Cadastrar Tecnologia" : "Editar Tecnologia"}
@@ -47,7 +46,6 @@ export const Modal = () => {
           onSubmit={handleSubmit(
             modalAdd ? createTechSubmit : updateTechSubmit
           )}
-          // noValidate
         >
           <Input
             label={modalAdd ? "Nome" : "Nome cadastrado"}
@@ -65,7 +63,6 @@ export const Modal = () => {
             label={modalAdd ? "Selecionar Nível" : "Nível cadastrado"}
             error={errors.status?.message}
           />
-          {/* <AnimSlideDown delay={1.5}> */}
           {modalAdd ? (
             <Button
               type="submit"
@@ -104,10 +101,7 @@ export const Modal = () => {
               />
             </div>
           )}
-
-          {/* </AnimSlideDown> */}
         </form>
-        {/* </div> */}
       </AnimSlideUp>
     </StyledModal>
   );

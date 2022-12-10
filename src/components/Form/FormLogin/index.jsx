@@ -1,10 +1,9 @@
-import React, { useState } from "react";
 import { Button } from "../../Button";
 import { Input } from "../../Input";
 import { StyledForm } from "../styles";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { registerSchema } from "./schemas";
+import { loginSchema } from "./schemas";
 import { BsFillEyeFill } from "react-icons/bs";
 import { BsEyeSlash } from "react-icons/bs";
 import { useContext } from "react";
@@ -21,7 +20,7 @@ export const FormLogin = () => {
     reset,
   } = useForm({
     mode: "onChange",
-    resolver: yupResolver(registerSchema),
+    resolver: yupResolver(loginSchema),
   });
 
   return (

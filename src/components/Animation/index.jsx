@@ -65,7 +65,6 @@ export const AnimSlideUp = ({ children, delay }) => (
 
 export const AnimPump = ({ children }) => (
   <motion.div
-    // className="box"
     initial={{ opacity: 0, scale: 0.5 }}
     animate={{ opacity: 1, scale: 1 }}
     transition={{

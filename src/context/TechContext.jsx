@@ -3,15 +3,13 @@ import { createContext, useState } from "react";
 import { createTech, deleteTech, getUsers, updateTech } from "../services/api";
 import { UserContext } from "./UserContext";
 
-console.log("techContext");
 export const TechContext = createContext({});
 
 export const TechProvider = ({ children }) => {
   const [techSelected, setTechSelected] = useState("");
   const [modalOpen, setModalOpen] = useState(false);
   const [modalAdd, setModalAdd] = useState(true);
-  const { setUser, setLoading, setLoading2, globalLoading } =
-    useContext(UserContext);
+  const { setUser, setLoading, setLoading2 } = useContext(UserContext);
 
   const closeModal = () => {
     setTimeout(async () => {
@@ -52,19 +50,17 @@ export const TechProvider = ({ children }) => {
   return (
     <TechContext.Provider
       value={{
+        modalAdd,
+        modalOpen,
         techSelected,
+        setModalAdd,
+        setModalOpen,
         setTechSelected,
         createTechSubmit,
         deleteTechSubmit,
         updateTechSubmit,
-        modalOpen,
-        setModalOpen,
-        modalAdd,
-        setModalAdd,
       }}
     >
-      {console.log("techComponent")}
-      {/* {globalLoading ? <h1>TESTE</h1> : children} */}
       {children}
     </TechContext.Provider>
   );

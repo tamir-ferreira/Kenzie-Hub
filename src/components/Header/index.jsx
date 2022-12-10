@@ -1,5 +1,5 @@
-import { Link } from "react-router-dom";
 import logo from "../../images/logo.svg";
+import { Link } from "react-router-dom";
 import { Button } from "../Button";
 
 export const Header = ({ className, onClick, children }) => {

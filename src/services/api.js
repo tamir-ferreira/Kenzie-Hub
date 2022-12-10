@@ -42,6 +42,7 @@ export const loginUser = async (user) => {
           color: "var(--color-success)",
         },
       });
+
     return data;
   } catch (error) {
     const message = error.response.data.message;
@@ -67,6 +68,7 @@ export const loginUser = async (user) => {
 export const getUsers = async () => {
   try {
     const { data } = await api.get("/profile");
+
     return data;
   } catch (error) {
     toast.error("Erro ao buscar dados no servidor!", {
@@ -74,6 +76,7 @@ export const getUsers = async () => {
         color: "var(--color-negative)",
       },
     });
+
     return null;
   }
 };
@@ -88,6 +91,7 @@ export const createTech = async (tech) => {
           color: "var(--color-success)",
         },
       });
+
     return true;
   } catch (error) {
     const message = error.response.data.message;
@@ -98,6 +102,7 @@ export const createTech = async (tech) => {
           color: "var(--color-negative)",
         },
       });
+
     return false;
   }
 };
@@ -112,6 +117,7 @@ export const deleteTech = async (tech_id) => {
           color: "var(--color-success)",
         },
       });
+
     return true;
   } catch (error) {
     toast.error("Erro ao buscar dados no servidor!", {
@@ -119,6 +125,7 @@ export const deleteTech = async (tech_id) => {
         color: "var(--color-negative)",
       },
     });
+
     return false;
   }
 };
@@ -133,6 +140,7 @@ export const updateTech = async (tech_id, body) => {
           color: "var(--color-success)",
         },
       });
+
     return true;
   } catch (error) {
     toast.error("Erro ao buscar dados no servidor!", {
@@ -140,6 +148,7 @@ export const updateTech = async (tech_id, body) => {
         color: "var(--color-negative)",
       },
     });
+
     return false;
   }
 };

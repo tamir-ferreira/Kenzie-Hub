@@ -2,6 +2,7 @@ import styled from "styled-components";
 
 export const StyledDashboard = styled.main`
   width: 100%;
+
   header {
     background-color: var(--color-gray-4);
     top: 0;

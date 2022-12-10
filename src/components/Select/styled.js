@@ -29,6 +29,7 @@ export const StyledSelect = styled.fieldset`
       cursor: pointer;
     }
   }
+
   p {
     color: var(--color-negative);
   }

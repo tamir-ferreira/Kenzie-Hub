@@ -21,6 +21,7 @@ export const UserProvider = ({ children }) => {
         setWaitUser(false);
         return;
       }
+
       const response = await getUsers(token);
       if (response !== null) {
         setUser(response);
@@ -63,8 +64,8 @@ export const UserProvider = ({ children }) => {
       contact: data.contact,
       course_module: data.course_module,
     };
-    const response = await createUser(user);
 
+    const response = await createUser(user);
     if (response) {
       setTimeout(() => {
         setLoading(false);
@@ -78,16 +79,16 @@ export const UserProvider = ({ children }) => {
   return (
     <UserContext.Provider
       value={{
-        loginSubmit,
-        registerSubmit,
+        user,
         loading,
         loading2,
-        setLoading,
-        setLoading2,
-        user,
-        setUser,
         waitUser,
         showPass,
+        setUser,
+        loginSubmit,
+        registerSubmit,
+        setLoading,
+        setLoading2,
         setShowPass,
       }}
     >
